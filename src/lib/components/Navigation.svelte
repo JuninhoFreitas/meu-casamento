@@ -44,14 +44,14 @@
 </script>
 
 <!-- Desktop Navigation -->
-<nav class="fixed top-0 left-0 right-0 z-50 bg-black/75 backdrop-blur-lg border-b border-white/10">
+<nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-lg border-b border-gray-200">
 	<div class="max-w-7xl mx-auto px-6 lg:px-8">
 		<div class="flex items-center justify-between h-16">
 			<!-- Logo -->
 			<div class="flex-shrink-0">
 				<button
 					onclick={() => scrollToSection('hero')}
-					class="text-white hover:text-yellow-400 transition-colors font-medium"
+					class="text-gray-900 hover:text-accent transition-colors font-medium"
 				>
 					Daniel Sun
 				</button>
@@ -64,8 +64,8 @@
 						<button
 							onclick={() => scrollToSection(section.id)}
 							class="px-3 py-2 text-sm font-medium transition-colors duration-200 {activeSection === section.id
-								? 'text-yellow-400'
-								: 'text-gray-300 hover:text-yellow-400'}"
+								? 'text-accent'
+								: 'text-gray-700 hover:text-accent'}"
 						>
 							{section.label}
 						</button>
@@ -77,7 +77,7 @@
 			<div class="hidden md:block">
 				<a
 					href="mailto:hello@danielsun.space"
-					class="bg-yellow-400 hover:bg-yellow-300 text-black px-4 py-2 rounded-full text-sm font-medium transition-colors"
+					class="bg-accent hover:bg-accent-hover text-white px-4 py-2 rounded-full text-sm font-medium transition-colors"
 				>
 					Start project
 				</a>
@@ -107,13 +107,13 @@
 	<!-- Mobile Menu -->
 	{#if isMenuOpen}
 		<div class="md:hidden">
-			<div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-gray-900">
+			<div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-gray-50">
 				{#each sections as section}
 					<button
 						onclick={() => scrollToSection(section.id)}
 						class="block px-3 py-2 text-base font-medium w-full text-left transition-colors {activeSection === section.id
-							? 'text-yellow-400 bg-gray-800'
-							: 'text-gray-300 hover:text-yellow-400 hover:bg-gray-700'}"
+							? 'text-accent bg-accent/10'
+							: 'text-gray-700 hover:text-accent hover:bg-gray-100'}"
 					>
 						{section.label}
 					</button>

@@ -41,10 +41,10 @@
 	<div class="max-w-6xl mx-auto">
 		<!-- Section Header -->
 		<div class="text-center mb-16">
-			<h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 transform transition-all duration-1000 {isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}">
+			<h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-8 transform transition-all duration-1000 {isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}">
 				What my perfect collab looks like
 			</h2>
-			<p class="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto transform transition-all duration-1000 delay-300 {isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}">
+			<p class="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto transform transition-all duration-1000 delay-300 {isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}">
 				Tap this 'tiny' button to highlight your product =)
 			</p>
 		</div>
@@ -55,17 +55,17 @@
 				<div class="flex flex-col md:flex-row items-start space-y-6 md:space-y-0 md:space-x-8 transform transition-all duration-1000 delay-{500 + index * 200} {isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}">
 					<!-- Step Number -->
 					<div class="flex-shrink-0">
-						<div class="w-16 h-16 bg-yellow-400 text-black rounded-full flex items-center justify-center text-xl font-bold">
+						<div class="w-16 h-16 bg-accent text-black rounded-full flex items-center justify-center text-xl font-bold">
 							{step.step}
 						</div>
 					</div>
 
 					<!-- Step Content -->
 					<div class="flex-1">
-						<h3 class="text-2xl md:text-3xl font-semibold text-white mb-4">
+						<h3 class="text-2xl md:text-3xl font-semibold text-gray-900 mb-4">
 							{step.title}
 						</h3>
-						<p class="text-lg text-gray-300 leading-relaxed">
+						<p class="text-lg text-gray-700 leading-relaxed">
 							{step.description}
 						</p>
 					</div>
@@ -75,16 +75,16 @@
 
 		<!-- CTA Section -->
 		<div class="mt-16 text-center transform transition-all duration-1000 delay-1500 {isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}">
-			<div class="bg-gradient-to-r from-yellow-400/10 to-yellow-400/5 rounded-2xl p-8 border border-yellow-400/20">
-				<h3 class="text-2xl md:text-3xl font-semibold text-white mb-4">
+			<div class="bg-gradient-to-r from-accent/10 to-accent/5 rounded-2xl p-8 border border-accent/20">
+				<h3 class="text-2xl md:text-3xl font-semibold text-gray-900 mb-4">
 					Ready to start your project?
 				</h3>
-				<p class="text-lg text-gray-300 mb-6">
+				<p class="text-lg text-gray-700 mb-6">
 					Let's create something amazing together. Every great product starts with a conversation.
 				</p>
 				<a
 					href="mailto:hello@danielsun.space"
-					class="inline-flex items-center px-8 py-4 bg-yellow-400 hover:bg-yellow-300 text-black font-semibold text-lg rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg"
+					class="inline-flex items-center px-8 py-4 bg-accent hover:bg-accent-hover text-white font-semibold text-lg rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg"
 				>
 					Get in touch
 					<svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

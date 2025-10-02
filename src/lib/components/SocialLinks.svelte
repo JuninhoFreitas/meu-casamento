@@ -39,11 +39,11 @@
 			href={link.url}
 			target="_blank"
 			rel="noopener noreferrer"
-			class="absolute {link.position} transform -rotate-3 hover:rotate-0 transition-transform duration-300 bg-black/80 backdrop-blur-sm border border-white/20 rounded-lg p-3 hover:bg-black/90 group"
+			class="absolute {link.position} transform -rotate-3 hover:rotate-0 transition-transform duration-300 bg-white/90 backdrop-blur-sm border border-gray-200 rounded-lg p-3 hover:bg-white group shadow-lg"
 		>
 			<div class="flex items-center space-x-2">
 				<span class="text-lg">{link.icon}</span>
-				<span class="text-xs text-gray-300 group-hover:text-yellow-400 transition-colors">
+				<span class="text-xs text-gray-700 group-hover:text-accent transition-colors">
 					{link.name}
 				</span>
 			</div>
@@ -59,7 +59,7 @@
 				href={link.url}
 				target="_blank"
 				rel="noopener noreferrer"
-				class="bg-black/80 backdrop-blur-sm border border-white/20 rounded-full p-3 hover:bg-black/90 transition-colors group"
+				class="bg-white/90 backdrop-blur-sm border border-gray-200 rounded-full p-3 hover:bg-white transition-colors group shadow-lg"
 			>
 				<span class="text-sm">{link.icon}</span>
 			</a>

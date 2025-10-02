@@ -75,11 +75,11 @@
 <section id="works" bind:this={worksElement} class="py-20 lg:py-32 px-6 lg:px-8">
 	<div class="max-w-7xl mx-auto">
 		<!-- Section Header -->
-		<div class="text-center mb-16">
-			<h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 transform transition-all duration-1000 {isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}">
+		<div class="text-center mb-20">
+			<h2 class="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 transform transition-all duration-1000 {isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}">
 				My latest work
 			</h2>
-			<p class="text-xl md:text-2xl text-gray-400 transform transition-all duration-1000 delay-300 {isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}">
+			<p class="text-2xl md:text-3xl text-gray-600 transform transition-all duration-1000 delay-300 {isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}">
 				from 2020 'til today
 			</p>
 		</div>
@@ -88,17 +88,17 @@
 		<div class="grid gap-8 md:gap-12">
 			{#each projects as project, index}
 				<div class="group cursor-pointer transform transition-all duration-1000 delay-{300 + index * 100} {isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}">
-					<div class="flex flex-col md:flex-row md:items-center justify-between py-6 border-b border-white/10 hover:border-yellow-400/50 transition-colors">
+					<div class="flex flex-col md:flex-row md:items-center justify-between py-6 border-b border-gray-200 hover:border-accent/50 transition-colors">
 						<div class="flex-1">
-							<h3 class="text-2xl md:text-3xl font-semibold text-white mb-2 group-hover:text-yellow-400 transition-colors">
+							<h3 class="text-2xl md:text-3xl font-semibold text-gray-900 mb-2 group-hover:text-accent transition-colors">
 								{project.name}
 							</h3>
-							<p class="text-gray-400 text-lg mb-2">
+							<p class="text-gray-600 text-lg mb-2">
 								{project.description}
 							</p>
 							<div class="flex flex-wrap gap-2">
 								{#each project.tags as tag}
-									<span class="px-3 py-1 bg-white/5 rounded-full text-sm text-gray-300 border border-white/10">
+									<span class="px-3 py-1 bg-gray-100 rounded-full text-sm text-gray-700 border border-gray-200">
 										{tag}
 									</span>
 								{/each}
@@ -114,9 +114,9 @@
 
 		<!-- Coming Soon Note -->
 		<div class="text-center mt-16 transform transition-all duration-1000 delay-1000 {isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}">
-			<p class="text-xl text-gray-400">
+			<p class="text-xl text-gray-600">
 				New cases are on the way,
-				<strong class="text-yellow-400">slowly but surely</strong>
+				<strong class="text-accent">slowly but surely</strong>
 				<span class="ml-2">😅</span>
 			</p>
 		</div>
