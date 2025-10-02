@@ -1,7 +1,7 @@
+@import url("/node_modules/hover.css/css/hover-min.css");
 @import 'tailwindcss';
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
-
 /* Custom styles for Daniel Sun website */
 @layer base {
 	html {

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { animate } from 'animejs';
 
 	let worksElement = $state<HTMLElement>();
 	let isVisible = $state(false);
@@ -9,61 +10,71 @@
 			name: 'Ruby',
 			description: 'Branding, Web design, Development',
 			year: '2024',
-			tags: ['Brand Identity', 'Web Design', 'Development']
+			tags: ['Brand Identity', 'Web Design', 'Development'],
+			image: 'https://framerusercontent.com/images/tXJpZd4d50hazNDi8i7xjNErxbU.png?width=800&height=600'
 		},
 		{
 			name: 'Stimulate',
 			description: 'Branding, Web design, Illustrations, Development',
 			year: '2024',
-			tags: ['Brand Identity', 'Web Design', 'Illustration', 'Development']
+			tags: ['Brand Identity', 'Web Design', 'Illustration', 'Development'],
+			image: 'https://framerusercontent.com/images/8yvYtcx3cfJFOTpz7A4hI9AtiI.png?width=800&height=600'
 		},
 		{
 			name: 'Caldera',
 			description: 'Web design, development',
 			year: '2023',
-			tags: ['Web Design', 'Development']
+			tags: ['Web Design', 'Development'],
+			image: 'https://framerusercontent.com/images/qyHjNFaKZK3J0IgI963dEUUJ4.png?width=800&height=600'
 		},
 		{
 			name: 'Reward Point',
 			description: 'Web design, Illustrations',
 			year: '2023',
-			tags: ['Web Design', 'Illustration']
+			tags: ['Web Design', 'Illustration'],
+			image: 'https://framerusercontent.com/images/uMA164Althqj1b2vXygS2wyBIgQ.png?width=800&height=600'
 		},
 		{
 			name: 'Memex',
 			description: 'Brand & product refresh, Web design',
 			year: '2023',
-			tags: ['Brand Refresh', 'Product Design', 'Web Design']
+			tags: ['Brand Refresh', 'Product Design', 'Web Design'],
+			image: 'https://framerusercontent.com/images/23QIkTXJxWXuDvTC7jrVLxmu5cA.png?width=800&height=600'
 		},
 		{
 			name: 'Pix AI',
 			description: 'Branding, Illustrations',
 			year: '2023',
-			tags: ['Brand Identity', 'Illustration']
+			tags: ['Brand Identity', 'Illustration'],
+			image: 'https://framerusercontent.com/images/RYuwqCxHlxrSfIOO7JZreY9YX9Q.png?width=800&height=600'
 		},
 		{
 			name: 'Polpis Systems',
 			description: 'Web design, Visual direction',
 			year: '2022',
-			tags: ['Web Design', 'Visual Direction']
+			tags: ['Web Design', 'Visual Direction'],
+			image: 'https://framerusercontent.com/images/jsH1LJRyZOojbHLTpFrbOtCClsY.png?width=800&height=600'
 		},
 		{
 			name: 'Quantia',
 			description: 'Web design, Visual direction, Illustrations',
 			year: '2022',
-			tags: ['Web Design', 'Visual Direction', 'Illustration']
+			tags: ['Web Design', 'Visual Direction', 'Illustration'],
+			image: 'https://framerusercontent.com/images/dXC5qH45pIUuYOr6asR5s01IhM.png?width=800&height=600'
 		},
 		{
 			name: 'Hily',
 			description: 'Branding, visual direction',
 			year: '2022',
-			tags: ['Brand Identity', 'Visual Direction']
+			tags: ['Brand Identity', 'Visual Direction'],
+			image: 'https://framerusercontent.com/images/placeholder-project.png?width=800&height=600'
 		},
 		{
 			name: 'Deepengine',
 			description: 'Web design, Visual direction, Illustrations',
 			year: '2021',
-			tags: ['Web Design', 'Visual Direction', 'Illustration']
+			tags: ['Web Design', 'Visual Direction', 'Illustration'],
+			image: 'https://framerusercontent.com/images/placeholder-project.png?width=800&height=600'
 		}
 	];
 
@@ -84,32 +95,45 @@
 			</p>
 		</div>
 
-		<!-- Projects Grid -->
-		<div class="grid gap-8 md:gap-12">
-			{#each projects as project, index}
-				<div class="group cursor-pointer transform transition-all duration-1000 delay-{300 + index * 100} {isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}">
-					<div class="flex flex-col md:flex-row md:items-center justify-between py-6 border-b border-gray-200 hover:border-accent/50 transition-colors">
-						<div class="flex-1">
-							<h3 class="text-2xl md:text-3xl font-semibold text-gray-900 mb-2 group-hover:text-accent transition-colors">
-								{project.name}
-							</h3>
-							<p class="text-gray-600 text-lg mb-2">
-								{project.description}
-							</p>
-							<div class="flex flex-wrap gap-2">
-								{#each project.tags as tag}
-									<span class="px-3 py-1 bg-gray-100 rounded-full text-sm text-gray-700 border border-gray-200">
-										{tag}
-									</span>
-								{/each}
+		<!-- Projects Grid - Matching original layout -->
+		<div class="relative">
+			<!-- Remaining projects in a grid below -->
+			<div class=" relative mt-96 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+				{#each projects as project, index}
+					<div class="group hvr-grow-rotate cursor-pointer">
+						<div class=" relative overflow-hidden rounded-2xl bg-white border border-gray-200 hover:shadow-2xl hover:border-accent/30  duration-500 group-hover:scale-[1.02]">
+							<!-- Project Image -->
+							<div class="relative h-64 overflow-hidden">
+								<img
+									src={project.image}
+									alt={project.name}
+									class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+									loading="lazy"
+								/>
+								<!-- Overlay on hover -->
+								<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+								<!-- Project Info Overlay -->
+								<div class="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+									<h3 class="text-xl font-bold mb-1">{project.name}</h3>
+									<p class="text-sm opacity-90 mb-2">{project.description}</p>
+								</div>
+							</div>
+
+							<!-- Bottom Info -->
+							<div class="p-4 border-t border-gray-100">
+								<div class="flex justify-between items-center">
+									<div>
+										<h3 class="text-lg font-semibold text-gray-900 mb-1">{project.name}</h3>
+										<p class="text-gray-600 text-sm">{project.description}</p>
+									</div>
+									<span class="text-gray-500 text-sm font-medium">{project.year}</span>
+								</div>
 							</div>
 						</div>
-						<div class="mt-4 md:mt-0 md:ml-8">
-							<span class="text-gray-500 text-lg">{project.year}</span>
-						</div>
 					</div>
-				</div>
-			{/each}
+				{/each}
+			</div>
 		</div>
 
 		<!-- Coming Soon Note -->

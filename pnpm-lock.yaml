@@ -7,6 +7,13 @@ settings:
 importers:
 
   .:
+    dependencies:
+      animejs:
+        specifier: ^4.2.0
+        version: 4.2.0
+      hover.css:
+        specifier: ^2.3.2
+        version: 2.3.2
     devDependencies:
       '@sveltejs/adapter-node':
         specifier: ^5.2.12
@@ -536,6 +543,9 @@ packages:
     engines: {node: '>=0.4.0'}
     hasBin: true
 
+  animejs@4.2.0:
+    resolution: {integrity: sha512-rhSpcclYeKvhPFSsJw+8icrtjZ+p46AdnDSqBNl3L5A3m8wZTcxQ3bK0VwzKdbOK8dc9mqTHHw7YBk2itHMgFQ==}
+
   aria-query@5.3.2:
     resolution: {integrity: sha512-COROpnaoap1E2F000S62r6A60uHZnmlvomhfyT2DlTcrY1OrBKn2UhH7qn5wTC9zMvD0AY7csdPSNwKP+7WiQw==}
     engines: {node: '>= 0.4'}
@@ -629,6 +639,9 @@ packages:
   hasown@2.0.2:
     resolution: {integrity: sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==}
     engines: {node: '>= 0.4'}
+
+  hover.css@2.3.2:
+    resolution: {integrity: sha512-eXch700vfcoSSAcEcU154lTHBYQy2cjGT+yJZtkKWxASBBiPVkqYOdMAa0sz4cYj2YIrl1FRE2s5O4EgOaIpig==}
 
   is-core-module@2.16.1:
     resolution: {integrity: sha512-UfoeMA6fIJ8wTYFEUjelnaGI67v6+N7qXJEvQuIGa99l4xsCruSYOVSQ0uPANn4dAzm8lkYPaKLrrijLq7x23w==}
@@ -1286,6 +1299,8 @@ snapshots:
 
   acorn@8.15.0: {}
 
+  animejs@4.2.0: {}
+
   aria-query@5.3.2: {}
 
   axobject-query@4.1.0: {}
@@ -1370,6 +1385,8 @@ snapshots:
   hasown@2.0.2:
     dependencies:
       function-bind: 1.1.2
+
+  hover.css@2.3.2: {}
 
   is-core-module@2.16.1:
     dependencies:

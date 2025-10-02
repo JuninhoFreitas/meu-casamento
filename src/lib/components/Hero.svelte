@@ -10,15 +10,16 @@
 </script>
 
 <section id="hero" bind:this={heroElement} class="relative min-h-screen flex items-center justify-center px-6 lg:px-8 bg-gradient-to-br from-yellow-50 via-white to-yellow-100">
+	<div class="absolute inset-0 bg-black opacity-50" style="background-image: url('https://i.imgur.com/3jVy211.png'); background-size: cover; background-position: center; background-repeat: no-repeat; background-color: #FFFFFF; background-attachment: fixed; "></div>
 	<!-- Background gradient -->
 	<div class="absolute inset-0 bg-gradient-radial from-accent/10 via-transparent to-transparent"></div>
 
 	<div class="relative max-w-4xl mx-auto text-center">
 		<!-- Main heading with staggered animation -->
 		<div class="mb-12">
-			<h1 class="text-6xl md:text-8xl lg:text-9xl font-bold text-gray-900 mb-6 leading-tight">
+			<h1 class="text-8xl md:text-8xl lg:text-9xl font-bold text-gray-900 mb-6 leading-tight text-left">
 				<span class="inline-block transform transition-all duration-1000 {isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}">
-					Daniel Sun
+					Gabrielle & João
 				</span>
 			</h1>
 		</div>
@@ -27,14 +28,14 @@
 		<div class="mb-16">
 			<p class="text-2xl md:text-3xl lg:text-4xl text-gray-700 font-light leading-relaxed max-w-3xl mx-auto">
 				<span class="inline-block transform transition-all duration-1000 delay-300 {isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}">
-					Howdy! Meet your trusted design partner,<br class="hidden md:block">
-					crafting strong brands for SaaS and Web3.
+					Está chegando o nosso grande dia,,<br class="hidden md:block">
+					que tal celebrar com a gente?
 				</span>
 			</p>
 		</div>
 
 		<!-- CTA Button -->
-		<div class="transform transition-all duration-1000 delay-500 {isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}">
+		<!-- <div class="transform transition-all duration-1000 delay-500 {isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}">
 			<a
 				href="mailto:hello@danielsun.space"
 				class="inline-flex items-center px-8 py-4 bg-accent hover:bg-accent-hover text-white font-semibold text-lg rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg"
@@ -44,7 +45,7 @@
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
 				</svg>
 			</a>
-		</div>
+		</div> -->
 	</div>
 
 	<!-- Decorative elements -->
