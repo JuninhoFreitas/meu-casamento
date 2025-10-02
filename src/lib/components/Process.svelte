@@ -7,28 +7,28 @@
 	const processSteps = [
 		{
 			step: '01',
-			title: 'Discovery',
-			description: 'We dive deep into your business, understanding your goals, target audience, and unique value proposition.'
+			title: 'A Convocação',
+			description: 'Mergulhamos fundo na sua agenda para garantir sua presença! Nesta primeira fase, pedimos que você confirme sua vinda, nos informe se precisará de ajuda com hospedagem e se utilizará o suporte dos Padrinhos para a entrega de presentes. Suas respostas são a base do nosso planejamento!'
 		},
 		{
 			step: '02',
-			title: 'Strategy',
-			description: 'Based on research, we craft a comprehensive design strategy that aligns with your business objectives.'
+			title: 'Contagem Regressiva',
+			description: 'Com as informações iniciais, entramos em modo de preparação. Conforme o grande dia se aproxima, enviaremos lembretes e pediremos as confirmações finais para que tudo esteja perfeito. Fique de olho nas nossas comunicações!'
 		},
 		{
 			step: '03',
-			title: 'Design',
-			description: 'We create beautiful, functional designs that capture your brand essence and resonate with users.'
+			title: 'O Grande Dia',
+			description: 'O desenvolvimento do nosso sonho se torna realidade! Aqui, sua única tarefa é vir para o casamento com o coração aberto, o melhor sorriso no rosto e muita energia para celebrar o nosso amor.'
 		},
 		{
 			step: '04',
-			title: 'Development',
-			description: 'Our expert developers bring designs to life with clean, scalable code and seamless user experiences.'
+			title: 'A Comemoração',
+			description: 'Lançamento oficial da nossa nova vida! Após a cerimônia, queremos todos juntos para um almoço delicioso, onde poderemos conversar, rir e criar as primeiras memórias de um dia inesquecível. A sua presença é o nosso maior presente.'
 		},
 		{
 			step: '05',
-			title: 'Launch',
-			description: 'We ensure a smooth launch and provide ongoing support to help your product succeed in the market.'
+			title: 'Boas Lembranças',
+			description: 'O evento termina, mas a celebração continua em nossos corações. Esta fase é eterna, onde guardaremos com carinho cada abraço, cada foto e a alegria de ter tido você ao nosso lado. Muito obrigado por fazer parte da nossa história!'
 		}
 	];
 
@@ -42,10 +42,10 @@
 		<!-- Section Header -->
 		<div class="text-center mb-16">
 			<h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-8 transform transition-all duration-1000 {isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}">
-				What my perfect collab looks like
+				Roadmap da Nossa Celebração
 			</h2>
 			<p class="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto transform transition-all duration-1000 delay-300 {isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}">
-				Tap this 'tiny' button to highlight your product =)
+				Sua missão, caso decida aceitar, é celebrar com a gente! =)
 			</p>
 		</div>
 
@@ -77,18 +77,18 @@
 		<div class="mt-16 text-center transform transition-all duration-1000 delay-1500 {isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}">
 			<div class="bg-gradient-to-r from-accent/10 to-accent/5 rounded-2xl p-8 border border-accent/20">
 				<h3 class="text-2xl md:text-3xl font-semibold text-gray-900 mb-4">
-					Ready to start your project?
+					Pronto para celebrar conosco?
 				</h3>
 				<p class="text-lg text-gray-700 mb-6">
-					Let's create something amazing together. Every great product starts with a conversation.
+					Estamos ansiosos para compartilhar este momento especial com você. Sua presença é o que tornará este dia inesquecível!
 				</p>
 				<a
-					href="mailto:hello@danielsun.space"
+					href="#connect"
 					class="inline-flex items-center px-8 py-4 bg-accent hover:bg-accent-hover text-white font-semibold text-lg rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg"
 				>
-					Get in touch
+					Confirmar presença
 					<svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 7.89a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
 					</svg>
 				</a>
 			</div>

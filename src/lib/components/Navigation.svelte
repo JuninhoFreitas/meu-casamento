@@ -5,10 +5,10 @@
 	let activeSection = $state('hero');
 
 	const sections = [
-		{ id: 'works', label: 'Work' },
-		{ id: 'story', label: 'Story' },
-		{ id: 'process', label: 'Process' },
-		{ id: 'connect', label: 'Connect' }
+		{ id: 'works', label: 'Informações' },
+		{ id: 'story', label: 'Nossa História' },
+		{ id: 'process', label: 'Roadmap' },
+		{ id: 'connect', label: 'Contato' }
 	];
 
 	function scrollToSection(sectionId: string) {
@@ -51,9 +51,9 @@
 			<div class="flex-shrink-0">
 				<button
 					onclick={() => scrollToSection('hero')}
-					class="text-gray-900 hover:text-accent transition-colors font-medium"
+					class="text-gray-900 hover:text-accent transition-colors font-medium text-lg"
 				>
-					Daniel Sun
+					F&F
 				</button>
 			</div>
 
@@ -76,10 +76,10 @@
 			<!-- CTA Button -->
 			<div class="hidden md:block">
 				<a
-					href="mailto:hello@danielsun.space"
+					href="#connect"
 					class="bg-accent hover:bg-accent-hover text-white px-4 py-2 rounded-full text-sm font-medium transition-colors"
 				>
-					Start project
+					Confirmar Presença
 				</a>
 			</div>
 
@@ -119,10 +119,10 @@
 					</button>
 				{/each}
 				<a
-					href="mailto:hello@danielsun.space"
-					class="block px-3 py-2 text-base font-medium text-yellow-400 hover:text-yellow-300"
+					href="#connect"
+					class="block px-3 py-2 text-base font-medium text-accent hover:text-accent-hover"
 				>
-					Start project
+					Confirmar Presença
 				</a>
 			</div>
 		</div>

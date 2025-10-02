@@ -4,13 +4,6 @@
 	let storyElement = $state<HTMLElement>();
 	let isVisible = $state(false);
 
-	const experiences = [
-		{ company: 'Halo Lab', role: 'Design Partner' },
-		{ company: 'Heartbeat', role: 'Creative Director' },
-		{ company: 'Ooze', role: 'Brand Designer' },
-		{ company: 'O0 design', role: 'Senior Designer' },
-		{ company: 'Clerk', role: 'Product Designer' }
-	];
 
 	onMount(() => {
 		isVisible = true;
@@ -22,56 +15,129 @@
 		<!-- Section Header -->
 		<div class="mb-16">
 			<h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-8 transform transition-all duration-1000 {isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}">
-				Every experience in my life is important and has taught me a lot
+				Nossa história de amor
 			</h2>
 		</div>
 
 		<!-- Story Content -->
-		<div class="space-y-8 text-lg md:text-xl text-gray-700 leading-relaxed">
-			<p class="transform transition-all duration-1000 delay-300 {isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}">
-				Growing up in Ukraine, my journey into design started… on the streets =) As a teen, art and graffiti sparked my visual storytelling passion, architecture degree gave me foundation, and digital design showed new creative depths.
-			</p>
+		<div class="space-y-16 text-lg md:text-xl text-gray-700 leading-relaxed">
+			<!-- Dia que nos conhecemos -->
+			<div>
+				<p class="transform transition-all duration-1000 delay-300 {isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'} mb-6">
+					<strong>Dia que nos conhecemos - Setembro de 2024</strong>
+				</p>
 
-			<p class="transform transition-all duration-1000 delay-500 {isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}">
-				Five years later, my wife and I moved to Porto. Here, with the ocean breeze, I craft web and brand solutions for tech companies to shine.
-			</p>
+				<div class="flex flex-row justify-between gap-12">
+					<blockquote class="w-1/2 transform transition-all duration-1000 delay-500 {isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'} p-6 bg-white rounded-lg shadow-sm border-l-4 border-accent italic">
+						<p class="text-gray-700">
+							"Dia 17 de setembro de 2024, nos encontramos pela primeira vez. Naquele dia, eu retornava de uma missão no Amazonas onde fomos ensinar sobre aconselhamento bíblico para os Ribeirinhos."
+						</p>
+						<footer class="mt-4 text-sm text-gray-600 font-medium">— João</footer>
+					</blockquote>
+					<blockquote class="w-1/2 transform transition-all duration-1000 delay-500 {isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'} p-6 bg-white rounded-lg shadow-sm border-l-4 border-accent italic">
+						<p class="text-gray-700">
+							"Eu estava vindo do Maranhão, onde morava após concluir a faculdade de medicina. Foi na Conferência de Aconselhamento Bíblico em Atibaia que nossos caminhos se cruzaram."
+						</p>
+						<footer class="mt-4 text-sm text-gray-600 font-medium">— Gabrielle</footer>
+					</blockquote>
+				</div>
+			</div>
 
-			<p class="transform transition-all duration-1000 delay-700 {isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}">
-				I partner up with dynamic founders reinventing tomorrow, from YC startups to enterprises and bootstrapped guys.
-			</p>
-		</div>
+			<!-- Começo da Amizade -->
+			<div>
+				<p class="transform transition-all duration-1000 delay-300 {isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'} mb-6">
+					<strong>Começo da Amizade - Outubro de 2024</strong>
+				</p>
 
-		<!-- Mission Statement -->
-		<div class="mt-16 p-8 bg-gray-100 rounded-2xl border border-gray-200">
-			<blockquote class="text-xl md:text-2xl text-gray-900 italic leading-relaxed transform transition-all duration-1000 delay-900 {isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}">
-				"My mission: to craft unique, consistent, mature identities for SaaS and Web3 products, boosting user engagement, investor confidence, revenue, and industry respect — a design others will benchmark."
-			</blockquote>
-		</div>
+				<div class="flex flex-row justify-between gap-12">
+					<blockquote class="w-1/2 transform transition-all duration-1000 delay-600 {isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'} p-6 bg-white rounded-lg shadow-sm border-l-4 border-accent italic">
+						<p class="text-gray-700">
+							"Começamos a conversar mais frequentemente sobre ministério e vida. Logo percebi que tínhamos muito em comum em nossa visão de vida e serviço."
+						</p>
+						<footer class="mt-4 text-sm text-gray-600 font-medium">— João</footer>
+					</blockquote>
+					<blockquote class="w-1/2 transform transition-all duration-1000 delay-600 {isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'} p-6 bg-white rounded-lg shadow-sm border-l-4 border-accent italic">
+						<p class="text-gray-700">
+							"Nossa amizade cresceu naturalmente, compartilhando experiências de ministério e sonhos para o futuro."
+						</p>
+						<footer class="mt-4 text-sm text-gray-600 font-medium">— Gabrielle</footer>
+					</blockquote>
+				</div>
+			</div>
 
-		<!-- Experience Timeline -->
-		<div class="mt-16">
-			<h3 class="text-2xl md:text-3xl font-semibold text-gray-900 mb-8 transform transition-all duration-1000 delay-1100 {isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}">
-				What my perfect collab looks like
-			</h3>
+			<!-- Começo do Namoro -->
+			<div>
+				<p class="transform transition-all duration-1000 delay-300 {isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'} mb-6">
+					<strong>Começo do Namoro - Janeiro de 2025</strong>
+				</p>
 
-			<div class="grid gap-4 md:gap-6">
-				{#each experiences as experience, index}
-					<div class="flex items-center space-x-4 p-4 bg-white rounded-lg border border-gray-200 transform transition-all duration-1000 delay-{1300 + index * 100} {isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}">
-						<div class="w-2 h-2 bg-accent rounded-full flex-shrink-0"></div>
-						<div>
-							<div class="font-semibold text-gray-900">{experience.company}</div>
-							<div class="text-gray-600">{experience.role}</div>
-						</div>
-					</div>
-				{/each}
+				<div class="flex flex-row justify-between gap-12">
+					<blockquote class="w-1/2 transform transition-all duration-1000 delay-700 {isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'} p-6 bg-white rounded-lg shadow-sm border-l-4 border-accent italic">
+						<p class="text-gray-700">
+							"Após meses de oração e aconselhamento, decidimos iniciar um relacionamento com propósito de casamento."
+						</p>
+						<footer class="mt-4 text-sm text-gray-600 font-medium">— João</footer>
+					</blockquote>
+					<blockquote class="w-1/2 transform transition-all duration-1000 delay-700 {isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'} p-6 bg-white rounded-lg shadow-sm border-l-4 border-accent italic">
+						<p class="text-gray-700">
+							"Foi um momento especial quando decidimos dar esse passo juntos, confiando na direção de Deus."
+						</p>
+						<footer class="mt-4 text-sm text-gray-600 font-medium">— Gabrielle</footer>
+					</blockquote>
+				</div>
+			</div>
+
+			<!-- Pedido de Casamento -->
+			<div>
+				<p class="transform transition-all duration-1000 delay-300 {isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'} mb-6">
+					<strong>Pedido de Casamento - Julho de 2025</strong>
+				</p>
+
+				<div class="flex flex-row justify-between gap-12">
+					<blockquote class="w-1/2 transform transition-all duration-1000 delay-800 {isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'} p-6 bg-white rounded-lg shadow-sm border-l-4 border-accent italic">
+						<p class="text-gray-700">
+							"Planejei cada detalhe do pedido, querendo tornar esse momento inesquecível para nós dois."
+						</p>
+						<footer class="mt-4 text-sm text-gray-600 font-medium">— João</footer>
+					</blockquote>
+					<blockquote class="w-1/2 transform transition-all duration-1000 delay-800 {isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'} p-6 bg-white rounded-lg shadow-sm border-l-4 border-accent italic">
+						<p class="text-gray-700">
+							"Foi uma surpresa maravilhosa! Mal posso esperar para começar nossa vida juntos."
+						</p>
+						<footer class="mt-4 text-sm text-gray-600 font-medium">— Gabrielle</footer>
+					</blockquote>
+				</div>
+			</div>
+
+			<!-- Casamento -->
+			<div>
+				<p class="transform transition-all duration-1000 delay-300 {isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'} mb-6">
+					<strong>Casamento - Março de 2026</strong>
+				</p>
+
+				<div class="flex flex-row justify-between gap-12">
+					<blockquote class="w-1/2 transform transition-all duration-1000 delay-900 {isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'} p-6 bg-white rounded-lg shadow-sm border-l-4 border-accent italic">
+						<p class="text-gray-700">
+							"Chegou o grande dia! Mal posso esperar para celebrar nossa união com família e amigos."
+						</p>
+						<footer class="mt-4 text-sm text-gray-600 font-medium">— João</footer>
+					</blockquote>
+					<blockquote class="w-1/2 transform transition-all duration-1000 delay-900 {isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'} p-6 bg-white rounded-lg shadow-sm border-l-4 border-accent italic">
+						<p class="text-gray-700">
+							"O início de uma nova jornada juntos, servindo a Deus e um ao outro."
+						</p>
+						<footer class="mt-4 text-sm text-gray-600 font-medium">— Gabrielle</footer>
+					</blockquote>
+				</div>
 			</div>
 		</div>
 
-		<!-- Secret Message -->
-		<div class="mt-16 text-center">
-			<p class="text-2xl md:text-3xl font-light text-gray-600 transform transition-all duration-1000 delay-1500 {isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}">
-				I don't have dark secrets, only bright ones
-			</p>
+		<!-- Bible Quote -->
+		<div class="mt-16 p-8 bg-gray-100 rounded-2xl border border-gray-200 text-center">
+			<blockquote class="text-xl md:text-2xl text-gray-900 italic leading-relaxed transform transition-all duration-1000 delay-1500 {isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}">
+				"Dêem graças ao Senhor, porque Ele é bom"<br>
+				<span class="text-lg">Salmos 136.1a</span>
+			</blockquote>
 		</div>
 	</div>
 </section>

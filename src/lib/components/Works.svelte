@@ -5,76 +5,34 @@
 	let worksElement = $state<HTMLElement>();
 	let isVisible = $state(false);
 
-	const projects = [
+	const weddingInfo = [
 		{
-			name: 'Ruby',
-			description: 'Branding, Web design, Development',
-			year: '2024',
-			tags: ['Brand Identity', 'Web Design', 'Development'],
-			image: 'https://framerusercontent.com/images/tXJpZd4d50hazNDi8i7xjNErxbU.png?width=800&height=600'
+			name: 'Local da Cerimônia',
+			description: 'Palavra da Vida - Morungava, Gravataí - RS, Brasil',
+			year: '18/10/2025',
+			tags: ['Cerimônia', 'Recepção', '15:00'],
+			image: 'https://lh3.googleusercontent.com/p/AF1QipOtsf-qlFgrL3FLYZ0YbB73htqZcc6H4F0dRjU'
 		},
 		{
-			name: 'Stimulate',
-			description: 'Branding, Web design, Illustrations, Development',
-			year: '2024',
-			tags: ['Brand Identity', 'Web Design', 'Illustration', 'Development'],
-			image: 'https://framerusercontent.com/images/8yvYtcx3cfJFOTpz7A4hI9AtiI.png?width=800&height=600'
+			name: 'Hospedagem',
+			description: 'Vamos disponibilizar um guia para hospedagens',
+			year: 'R$?/noite',
+			tags: ['Acomodação', 'Perto do local', 'Reservas até 10/09'],
+			image: 'https://cf.bstatic.com/xdata/images/hotel/max1024x768/61301210.jpg?k=f624f9e96da242bf0dd7e9f0a2fc258db0d9f40f316e904ec14e231959154a98&o=&hp=1'
 		},
 		{
-			name: 'Caldera',
-			description: 'Web design, development',
-			year: '2023',
-			tags: ['Web Design', 'Development'],
-			image: 'https://framerusercontent.com/images/qyHjNFaKZK3J0IgI963dEUUJ4.png?width=800&height=600'
+			name: 'Lista de Presentes',
+			description: 'Sugestões de presentes para compartilhar nossa felicidade',
+			year: 'Monetário preferido',
+			tags: ['Presentes', 'PIX disponível', 'Contato direto'],
+			image: 'https://www.meupositivo.com.br/doseujeito/wp-content/uploads/2021/12/7-sites-para-fazer-lista-de-casamento-online-capa.jpg'
 		},
 		{
-			name: 'Reward Point',
-			description: 'Web design, Illustrations',
-			year: '2023',
-			tags: ['Web Design', 'Illustration'],
-			image: 'https://framerusercontent.com/images/uMA164Althqj1b2vXygS2wyBIgQ.png?width=800&height=600'
-		},
-		{
-			name: 'Memex',
-			description: 'Brand & product refresh, Web design',
-			year: '2023',
-			tags: ['Brand Refresh', 'Product Design', 'Web Design'],
-			image: 'https://framerusercontent.com/images/23QIkTXJxWXuDvTC7jrVLxmu5cA.png?width=800&height=600'
-		},
-		{
-			name: 'Pix AI',
-			description: 'Branding, Illustrations',
-			year: '2023',
-			tags: ['Brand Identity', 'Illustration'],
-			image: 'https://framerusercontent.com/images/RYuwqCxHlxrSfIOO7JZreY9YX9Q.png?width=800&height=600'
-		},
-		{
-			name: 'Polpis Systems',
-			description: 'Web design, Visual direction',
-			year: '2022',
-			tags: ['Web Design', 'Visual Direction'],
-			image: 'https://framerusercontent.com/images/jsH1LJRyZOojbHLTpFrbOtCClsY.png?width=800&height=600'
-		},
-		{
-			name: 'Quantia',
-			description: 'Web design, Visual direction, Illustrations',
-			year: '2022',
-			tags: ['Web Design', 'Visual Direction', 'Illustration'],
-			image: 'https://framerusercontent.com/images/dXC5qH45pIUuYOr6asR5s01IhM.png?width=800&height=600'
-		},
-		{
-			name: 'Hily',
-			description: 'Branding, visual direction',
-			year: '2022',
-			tags: ['Brand Identity', 'Visual Direction'],
-			image: 'https://framerusercontent.com/images/placeholder-project.png?width=800&height=600'
-		},
-		{
-			name: 'Deepengine',
-			description: 'Web design, Visual direction, Illustrations',
-			year: '2021',
-			tags: ['Web Design', 'Visual Direction', 'Illustration'],
-			image: 'https://framerusercontent.com/images/placeholder-project.png?width=800&height=600'
+			name: 'Confirmação de Presença',
+			description: 'Ajude-nos a organizar melhor o evento confirmando sua presença',
+			year: 'RSVP',
+			tags: ['Presença', 'Organização', 'Contato conosco'],
+			image: 'https://i.imgur.com/YiK2AKy.png'
 		}
 	];
 
@@ -88,10 +46,10 @@
 		<!-- Section Header -->
 		<div class="text-center mb-20">
 			<h2 class="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 transform transition-all duration-1000 {isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}">
-				My latest work
+				Informações do casamento
 			</h2>
 			<p class="text-2xl md:text-3xl text-gray-600 transform transition-all duration-1000 delay-300 {isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}">
-				from 2020 'til today
+				Tudo que você precisa saber sobre o nosso grande dia
 			</p>
 		</div>
 
@@ -99,7 +57,7 @@
 		<div class="relative">
 			<!-- Remaining projects in a grid below -->
 			<div class=" relative mt-96 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-				{#each projects as project, index}
+				{#each weddingInfo as project, index}
 					<div class="group hvr-grow-rotate cursor-pointer">
 						<div class=" relative overflow-hidden rounded-2xl bg-white border border-gray-200 hover:shadow-2xl hover:border-accent/30  duration-500 group-hover:scale-[1.02]">
 							<!-- Project Image -->
@@ -139,8 +97,8 @@
 		<!-- Coming Soon Note -->
 		<div class="text-center mt-16 transform transition-all duration-1000 delay-1000 {isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}">
 			<p class="text-xl text-gray-600">
-				New cases are on the way,
-				<strong class="text-accent">slowly but surely</strong>
+				Novas informações estão chegando,
+				<strong class="text-accent">lentamente mas certamente</strong>
 				<span class="ml-2">😅</span>
 			</p>
 		</div>

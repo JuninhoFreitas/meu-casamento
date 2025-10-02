@@ -3,9 +3,10 @@
 
 	let heroElement = $state<HTMLElement>();
 	let isVisible = $state(false);
-
+	let daysLeft = $state(0);
 	onMount(() => {
 		isVisible = true;
+		daysLeft = Math.floor((new Date('2026-03-07').getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24));
 	});
 </script>
 
@@ -25,11 +26,21 @@
 		</div>
 
 		<!-- Subtitle -->
-		<div class="mb-16">
+		<div class="mb-8">
 			<p class="text-2xl md:text-3xl lg:text-4xl text-gray-700 font-light leading-relaxed max-w-3xl mx-auto">
 				<span class="inline-block transform transition-all duration-1000 delay-300 {isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}">
-					Está chegando o nosso grande dia,,<br class="hidden md:block">
-					que tal celebrar com a gente?
+					7 de Março  de 2026 — 9h00<br class="hidden md:block">
+					Faltam {daysLeft} dias para o nosso grande dia!
+				</span>
+			</p>
+		</div>
+
+		<!-- Bible Quote -->
+		<div class="mb-16">
+			<p class="text-xl md:text-2xl lg:text-3xl text-gray-600 font-light leading-relaxed max-w-3xl mx-auto italic">
+				<span class="inline-block transform transition-all duration-1000 delay-500 {isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}">
+					"Dêem graças ao Senhor, porque ele é bom!"<br class="hidden md:block">
+					<span class="text-lg">Salmos 136.1a</span>
 				</span>
 			</p>
 		</div>
