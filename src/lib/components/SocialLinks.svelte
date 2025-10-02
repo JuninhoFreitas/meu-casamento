@@ -52,7 +52,7 @@
 </div>
 
 <!-- Mobile Social Links -->
-<div class="fixed bottom-4 right-4 z-40 lg:hidden">
+<!-- <div class="fixed bottom-4 right-4 z-40 lg:hidden">
 	<div class="flex flex-col space-y-2">
 		{#each socialLinks as link}
 			<a
@@ -65,4 +65,4 @@
 			</a>
 		{/each}
 	</div>
-</div>
+</div> -->

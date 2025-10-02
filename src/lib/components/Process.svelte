@@ -1,5 +1,8 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import SectionTitle from './SectionTitle.svelte';
+	import AnimatedText from './AnimatedText.svelte';
+	import ProcessStep from './ProcessStep.svelte';
 
 	let processElement = $state<HTMLElement>();
 	let isVisible = $state(false);
@@ -41,35 +44,29 @@
 	<div class="max-w-6xl mx-auto">
 		<!-- Section Header -->
 		<div class="text-center mb-16">
-			<h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-8 transform transition-all duration-1000 {isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}">
-				Roadmap da Nossa Celebração
-			</h2>
-			<p class="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto transform transition-all duration-1000 delay-300 {isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}">
-				Sua missão, caso decida aceitar, é celebrar com a gente! =)
-			</p>
+			<SectionTitle
+				title="Roadmap da Nossa Celebração"
+				{isVisible}
+			/>
+			<AnimatedText
+				content="Sua missão, caso decida aceitar, é celebrar com a gente! =)"
+				delay={300}
+				{isVisible}
+				class="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto"
+				tag="p"
+			/>
 		</div>
 
 		<!-- Process Steps -->
 		<div class="grid gap-8 md:gap-12">
 			{#each processSteps as step, index}
-				<div class="flex flex-col md:flex-row items-start space-y-6 md:space-y-0 md:space-x-8 transform transition-all duration-1000 delay-{500 + index * 200} {isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}">
-					<!-- Step Number -->
-					<div class="flex-shrink-0">
-						<div class="w-16 h-16 bg-accent text-black rounded-full flex items-center justify-center text-xl font-bold">
-							{step.step}
-						</div>
-					</div>
-
-					<!-- Step Content -->
-					<div class="flex-1">
-						<h3 class="text-2xl md:text-3xl font-semibold text-gray-900 mb-4">
-							{step.title}
-						</h3>
-						<p class="text-lg text-gray-700 leading-relaxed">
-							{step.description}
-						</p>
-					</div>
-				</div>
+				<ProcessStep
+					step={step.step}
+					title={step.title}
+					description={step.description}
+					delay={500 + index * 200}
+					{isVisible}
+				/>
 			{/each}
 		</div>
 

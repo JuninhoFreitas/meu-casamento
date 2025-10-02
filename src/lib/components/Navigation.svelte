@@ -53,7 +53,7 @@
 					onclick={() => scrollToSection('hero')}
 					class="text-gray-900 hover:text-accent transition-colors font-medium text-lg"
 				>
-					F&F
+					G&J
 				</button>
 			</div>
 
