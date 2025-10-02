@@ -6,7 +6,6 @@
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
-		"build:analyze": "vite build && pnpm exec vite-bundle-analyzer dist/bundle-analysis.html",
 		"preview": "vite preview",
 		"lighthouse": "lighthouse http://localhost:5173 --output html --output-path ./lighthouse-report.html",
 		"lighthouse:ci": "lighthouse http://localhost:5173 --output json --output-path ./lighthouse-report.json",
