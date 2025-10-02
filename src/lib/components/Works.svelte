@@ -7,6 +7,10 @@
 
 	let worksElement = $state<HTMLElement>();
 	let isVisible = $state(false);
+	import unidos from '$lib/assets/unidos.webp';
+	import hotel from '$lib/assets/hotel.webp';
+	import presentes from '$lib/assets/presentes.webp';
+	import casamento from '$lib/assets/casamento.webp';
 
 	const weddingInfo = [
 		{
@@ -14,28 +18,28 @@
 			description: 'Igreja Bíblica Unidos no Senhor, Novo Hamburgo - RS, Brasil',
 			year: '07/03/2026',
 			tags: ['Cerimônia', 'Recepção', '15:00'],
-			image: 'https://lh3.googleusercontent.com/p/AF1QipOtsf-qlFgrL3FLYZ0YbB73htqZcc6H4F0dRjU'
+			image: unidos
 		},
 		{
 			name: 'Hospedagem',
 			description: 'Vamos disponibilizar um guia para hospedagens',
 			year: 'R$?/noite',
 			tags: ['Acomodação', 'Perto do local', 'Reservas até 10/09'],
-			image: 'https://cf.bstatic.com/xdata/images/hotel/max1024x768/61301210.jpg?k=f624f9e96da242bf0dd7e9f0a2fc258db0d9f40f316e904ec14e231959154a98&o=&hp=1'
+			image: hotel
 		},
 		{
 			name: 'Lista de Presentes',
 			description: 'Sugestões de presentes para compartilhar nossa felicidade',
 			year: 'Monetário preferido',
 			tags: ['Presentes', 'PIX disponível', 'Contato direto'],
-			image: 'https://www.meupositivo.com.br/doseujeito/wp-content/uploads/2021/12/7-sites-para-fazer-lista-de-casamento-online-capa.jpg'
+			image: presentes
 		},
 		{
 			name: 'Confirmação de Presença',
 			description: 'Ajude-nos a organizar melhor o evento confirmando sua presença',
 			year: 'RSVP',
 			tags: ['Presença', 'Organização', 'Contato conosco'],
-			image: 'https://i.imgur.com/YiK2AKy.png'
+			image: casamento
 		}
 	];
 

@@ -12,8 +12,9 @@
 </script>
 
 <section id="hero" bind:this={heroElement} class="relative min-h-screen flex items-center justify-center px-6 lg:px-8 bg-gradient-to-br from-yellow-50 via-white to-yellow-100">
+	<!-- Optimized background using CSS patterns instead of large images -->
 	<div class="absolute inset-0 bg-gradient-radial from-accent/10 via-transparent to-transparent"></div>
-	<div class="absolute inset-0 bg-black opacity-50" style="background-image: url('https://i.imgur.com/3jVy211.png'); background-size: cover; background-position: center; background-repeat: no-repeat; background-color: #FFFFFF; "></div>
+	<div class="absolute inset-0 bg-black opacity-50" style="background-image: url('/src/lib/assets/hero.webp'); background-size: cover; background-position: center; background-repeat: no-repeat; background-color: #FFFFFF; "></div>
 	<!-- Background gradient -->
 	
 
@@ -67,9 +68,9 @@
 		</div> -->
 	</div>
 
-	<!-- Decorative elements -->
-	<div class="absolute top-1/4 left-8 w-64 h-64 bg-accent/20 rounded-full blur-3xl animate-pulse"></div>
-	<div class="absolute bottom-1/4 right-8 w-48 h-48 bg-accent/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+	<!-- Optimized decorative elements with reduced blur for better performance -->
+	<div class="absolute top-1/4 left-8 w-64 h-64 bg-accent/15 rounded-full blur-2xl animate-pulse"></div>
+	<div class="absolute bottom-1/4 right-8 w-48 h-48 bg-accent/8 rounded-full blur-2xl animate-pulse delay-1000"></div>
 </section>
 
 <style>

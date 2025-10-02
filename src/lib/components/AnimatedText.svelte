@@ -18,6 +18,6 @@
 	}: Props = $props();
 </script>
 
-<svelte:element this={tag} class="inline-block transform transition-all duration-{duration} delay-{delay} {isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'} {className}">
+<svelte:element this={tag} class="inline-block {className}" class:animate-fade-in={isVisible} style="animation-delay: {delay}ms; animation-duration: {duration}ms; animation-fill-mode: both;">
 	{content}
 </svelte:element>

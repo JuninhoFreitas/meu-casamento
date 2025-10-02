@@ -41,19 +41,19 @@
 				<p class="text-lg text-gray-600 mb-4">Ou confirme sua presença através dos nossos canais:</p>
 				<div class="flex flex-wrap justify-center gap-4">
 					<a
-						href="#"
+						href="mailto:brizollajr@gmail.com?subject=Confirmação de Presença - Casamento Gabrielle & João"
 						class="px-6 py-3 bg-accent hover:bg-accent-hover text-white rounded-full transition-all duration-300 hover:scale-105"
 					>
 						Confirmar Presença
 					</a>
 					<a
-						href="#"
+						href="mailto:brizollajr@gmail.com?subject=Lista de Presentes - Casamento Gabrielle & João"
 						class="px-6 py-3 bg-white hover:bg-gray-50 border border-gray-200 text-gray-700 hover:text-accent rounded-full transition-all duration-300 hover:scale-105"
 					>
 						Lista de Presentes
 					</a>
 					<a
-						href="#"
+						href="mailto:brizollajr@gmail.com?subject=Mural de Recados - Casamento Gabrielle & João"
 						class="px-6 py-3 bg-white hover:bg-gray-50 border border-gray-200 text-gray-700 hover:text-accent rounded-full transition-all duration-300 hover:scale-105"
 					>
 						Mural de Recados

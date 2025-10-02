@@ -6,7 +6,11 @@
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
+		"build:analyze": "vite build && pnpm exec vite-bundle-analyzer dist/bundle-analysis.html",
 		"preview": "vite preview",
+		"lighthouse": "lighthouse http://localhost:5173 --output html --output-path ./lighthouse-report.html",
+		"lighthouse:ci": "lighthouse http://localhost:5173 --output json --output-path ./lighthouse-report.json",
+		"perf": "npm run build:analyze && npm run lighthouse:ci",
 		"prepare": "svelte-kit sync || echo ''",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
@@ -18,6 +22,7 @@
 		"@tailwindcss/forms": "^0.5.9",
 		"@tailwindcss/typography": "^0.5.15",
 		"@tailwindcss/vite": "^4.0.0",
+		"lighthouse": "^12.8.2",
 		"mdsvex": "^0.12.3",
 		"svelte": "^5.0.0",
 		"svelte-check": "^4.0.0",
