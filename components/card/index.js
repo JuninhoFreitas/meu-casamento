@@ -4,6 +4,7 @@ import s from './card.module.scss'
 export const Card = ({
   number,
   text,
+  children,
   className,
   inverted,
   background = 'rgba(14, 14, 14, 0.15)',
@@ -16,7 +17,11 @@ export const Card = ({
       {number && (
         <p className={s.number}>{number.toString().padStart(2, '0')}</p>
       )}
-      {text && <p className={s.text}>{text}</p>}
+      {(text || children) && (
+        <div className={s.text}>
+          {text || children}
+        </div>
+      )}
     </div>
   )
 }

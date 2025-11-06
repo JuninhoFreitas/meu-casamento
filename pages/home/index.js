@@ -1,12 +1,11 @@
-import { useFrame, useRect } from '@darkroom.engineering/hamo'
+import { useRect } from '@darkroom.engineering/hamo'
 import cn from 'clsx'
 
 import { Button } from 'components/button'
 import { Card } from 'components/card'
 import { Title } from 'components/intro'
 import { Link } from 'components/link'
-import { ListItem } from 'components/list-item'
-import { projects } from 'content/projects'
+import { casamento } from 'content/casamento'
 import { useScroll } from 'hooks/use-scroll'
 import { Layout } from 'layouts/default'
 import { button, useControls } from 'leva'
@@ -17,10 +16,6 @@ import { useEffect, useRef, useState } from 'react'
 import { useIntersection, useWindowSize } from 'react-use'
 import s from './home.module.scss'
 import { Modal } from 'components/modal'
-
-// const SFDR = dynamic(() => import('icons/sfdr.svg'), { ssr: false })
-const GitHub = dynamic(() => import('icons/github.svg'), { ssr: false })
-const Sponsor = dynamic(() => import('icons/sponsor.svg'), { ssr: false })
 
 const Parallax = dynamic(
   () => import('components/parallax').then((mod) => mod.Parallax),
@@ -38,8 +33,9 @@ const HorizontalSlides = dynamic(
   { ssr: false }
 )
 
-const FeatureCards = dynamic(
-  () => import('components/feature-cards').then((mod) => mod.FeatureCards),
+const RoadmapCards = dynamic(
+  () =>
+    import('components/roadmap-cards').then((mod) => mod.RoadmapCards),
   { ssr: false }
 )
 
@@ -56,6 +52,16 @@ const HeroTextIn = ({ children, introOut }) => {
   )
 }
 
+const calculateDaysLeft = (dateISO) => {
+  const weddingDate = new Date(dateISO)
+  const today = new Date()
+  today.setHours(0, 0, 0, 0)
+  weddingDate.setHours(0, 0, 0, 0)
+  const diffTime = weddingDate - today
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24))
+  return diffDays > 0 ? diffDays : 0
+}
+
 if (typeof window !== 'undefined') {
   window.history.scrollRestoration = 'manual'
   window.scrollTo(0, 0)
@@ -70,6 +76,17 @@ export default function Home() {
 
   const [theme, setTheme] = useState('dark')
   const lenis = useStore(({ lenis }) => lenis)
+  const [daysLeft, setDaysLeft] = useState(
+    calculateDaysLeft(casamento.data.dataISO)
+  )
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setDaysLeft(calculateDaysLeft(casamento.data.dataISO))
+    }, 1000 * 60 * 60) // Update every hour
+
+    return () => clearInterval(interval)
+  }, [])
 
   useControls(
     'lenis',
@@ -143,7 +160,6 @@ export default function Home() {
   const [whyRectRef, whyRect] = useRect()
   const [cardsRectRef, cardsRect] = useRect()
   const [whiteRectRef, whiteRect] = useRect()
-  const [featuresRectRef, featuresRect] = useRect()
   const [inuseRectRef, inuseRect] = useRect()
 
   const addThreshold = useStore(({ addThreshold }) => addThreshold)
@@ -176,10 +192,6 @@ export default function Home() {
     addThreshold({ id: 'light-start', value: top })
   }, [whiteRect])
 
-  useEffect(() => {
-    const top = featuresRect.top
-    addThreshold({ id: 'features', value: top })
-  }, [featuresRect])
 
   useEffect(() => {
     const top = inuseRect.top
@@ -195,9 +207,6 @@ export default function Home() {
     console.log(window.scrollY, e.scroll, e.isScrolling, e.velocity, e.isLocked)
   })
 
-  useFrame(() => {
-    console.log('frame', window.scrollY, lenis?.scroll, lenis?.isScrolling)
-  }, 1)
 
   const inUseRef = useRef()
 
@@ -205,19 +214,24 @@ export default function Home() {
   const intersection = useIntersection(inUseRef, {
     threshold: 0.2,
   })
+  
   useEffect(() => {
     if (intersection?.isIntersecting) {
       setIsVisible(true)
     }
   }, [intersection])
 
+  const heroSubtitle = casamento.secoes.hero.subtitulo.replace(
+    '{daysLeft}',
+    daysLeft.toString()
+  )
+
   return (
     <Layout
       theme={theme}
       seo={{
-        title: 'Lenis – Get smooth or die trying',
-        description:
-          'A smooth scroll library fresh out of the darkroom.engineering.',
+        title: `${casamento.noivos.nomeCompleto} - Casamento ${casamento.data.data}`,
+        description: `Casamento de ${casamento.noivos.nomeCompleto} em ${casamento.data.data}. ${casamento.local.cerimonia.enderecoCompleto}`,
       }}
       className={s.home}
     >
@@ -227,17 +241,16 @@ export default function Home() {
 
       <Modal />
 
-      <section className={s.hero}>
+      <section className={s.hero} id="hero">
         <div className="layout-grid-inner">
           <Title className={s.title} />
-          {/* <SFDR className={cn(s.icon, introOut && s.show)} /> */}
           <span className={cn(s.sub)}>
             <HeroTextIn introOut={introOut}>
-              <h2 className={cn('h3', s.subtitle)}>Smooth Scroll</h2>
+              <h2 className={cn('h3', s.subtitle)}>{casamento.noivos.nomeCompleto}</h2>
             </HeroTextIn>
             <HeroTextIn introOut={introOut}>
               <h2 className={cn('p-xs', s.tm)}>
-                <span>©</span> {new Date().getFullYear()} darkroom.engineering
+                <span>©</span> {casamento.metadata.site.copyright.split('©')[1].trim()}
               </h2>
             </HeroTextIn>
           </span>
@@ -254,154 +267,143 @@ export default function Home() {
           >
             <div className={s.text}>
               <HeroTextIn introOut={introOut}>
-                <p>scroll</p>
+                <p>role</p>
               </HeroTextIn>
               <HeroTextIn introOut={introOut}>
-                <p> to explore</p>
+                <p> para explorar</p>
               </HeroTextIn>
             </div>
           </div>
           <h1 className={cn(s.description, 'p-s')}>
             <HeroTextIn introOut={introOut}>
-              <p className="p-s">A smooth scroll library</p>
+              <p className="p-s">{heroSubtitle}</p>
             </HeroTextIn>
             <HeroTextIn introOut={introOut}>
-              <p className="p-s">fresh out of darkroom.engineering</p>
+              <p className="p-s">{casamento.local.cerimonia.enderecoCompleto}</p>
             </HeroTextIn>
             <HeroTextIn introOut={introOut}>
-              <p className="p-s">website designed by Studio Freight</p>
+              <p className="p-s">Cerimônia às {casamento.data.horario.cerimonia}</p>
             </HeroTextIn>
           </h1>
           <Button
             className={cn(s.cta, s.documentation, introOut && s.in)}
             arrow
-            icon={<GitHub />}
-            href="https://github.com/darkroomengineering/lenis/blob/main/README.md"
+            href={`mailto:${casamento.contato.email}?subject=${encodeURIComponent(casamento.contato.opcoes[0].assunto)}`}
           >
-            documentation
+            Confirmar Presença
           </Button>
           <Button
             className={cn(s.cta, s.sponsor, introOut && s.in)}
             arrow
-            icon={<Sponsor />}
-            href="https://github.com/sponsors/darkroomengineering"
+            href={`#${casamento.metadata.site.navegacao[0].id}`}
           >
-            become a sponsor
+            Ver Informações
           </Button>
         </div>
       </section>
 
-      <section className={s.why} data-lenis-scroll-snap-align="start">
+      <section className={s.why} id="works" data-lenis-scroll-snap-align="start">
         <div className="layout-grid">
           <h2 className={cn(s.sticky, 'h2')}>
-            <AppearTitle>Why smooth scroll?</AppearTitle>
+            <AppearTitle>{casamento.secoes.works.titulo}</AppearTitle>
           </h2>
           <aside className={s.features} ref={whyRectRef}>
             <div className={s.feature}>
+              <p className="p">{casamento.secoes.works.subtitulo}</p>
+            </div>
+            <div className={s.feature}>
+              <h3 className={cn(s.title, 'h4')}>Local da Cerimônia</h3>
               <p className="p">
-                We’ve heard all the reasons to not use smooth scroll. It feels
-                hacky. It’s inaccessible. It’s not performant. It’s
-                over-engineered. And historically, those were all true. But we
-                like to imagine things as they could be, then build them. So,
-                why should you use smooth scroll?
+                <strong>{casamento.local.cerimonia.nome}</strong>
+                <br />
+                {casamento.local.cerimonia.enderecoCompleto}
+                <br />
+                <br />
+                Horário: {casamento.data.horario.cerimonia}
               </p>
             </div>
             <div className={s.feature}>
-              <h3 className={cn(s.title, 'h4')}>
-                Create more immersive interfaces
-              </h3>
+              <h3 className={cn(s.title, 'h4')}>Hospedagem</h3>
               <p className="p">
-                Unlock the creative potential and impact of your web
-                experiences. Smoothing the scroll pulls users into the flow of
-                the experience that feels so substantial that they forget
-                they’re navigating a web page.
+                {casamento.hospedagem.descricao}
+                <br />
+                <br />
+                {casamento.hospedagem.tags.map((tag, i) => (
+                  <span key={i}>
+                    {tag}
+                    {i < casamento.hospedagem.tags.length - 1 && ' • '}
+                  </span>
+                ))}
               </p>
             </div>
             <div className={s.feature}>
-              <h3 className={cn(s.title, 'h4')}>
-                Normalize all your user inputs
-              </h3>
+              <h3 className={cn(s.title, 'h4')}>Presentes</h3>
               <p className="p">
-                Give all your users the same (dope) experience whether they’re
-                using trackpads, mouse wheels, or otherwise. With smooth scroll,
-                you control how silky, heavy, or responsive the experience
-                should be — no matter the input. Magic!
-              </p>
-            </div>
-            <div className={s.feature}>
-              <h3 className={cn(s.title, 'h4')}>
-                Make your animations flawless
-              </h3>
-              <p className="p">
-                Synchronization with native scroll is not reliable. Those jumps
-                and delays with scroll-linked animations are caused by
-                multi-threading, where modern browsers run animations/effects
-                asynchronously with the scroll. Smooth scroll fixes this.
+                {casamento.presentes.descricao}
+                <br />
+                <br />
+                <strong>{casamento.presentes.tipoPreferido}</strong>
+                <br />
+                {casamento.presentes.observacao}
               </p>
             </div>
           </aside>
         </div>
       </section>
-      <section className={s.rethink}>
+      <section className={s.rethink} id="story">
         <div className={cn('layout-grid', s.pre)}>
           <div className={s.highlight} data-lenis-scroll-snap-align="start">
             <Parallax speed={-0.5}>
               <p className="h2">
-                <AppearTitle>Rethinking smooth scroll</AppearTitle>
+                <AppearTitle>{casamento.historia.titulo}</AppearTitle>
               </p>
             </Parallax>
           </div>
           <div className={s.comparison}>
             <Parallax speed={0.5}>
               <p className="p">
-                We have to give props to libraries like{' '}
-                <Link
-                  className="contrast semi-bold"
-                  href="https://github.com/locomotivemtl/locomotive-scroll"
-                >
-                  Locomotive Scroll
-                </Link>{' '}
-                and{' '}
-                <Link
-                  className="contrast semi-bold"
-                  href="https://greensock.com/docs/v3/Plugins/ScrollSmoother"
-                >
-                  GSAP ScrollSmoother
-                </Link>
-                . They’re well built and well documented – and we’ve used them a
-                lot. But they still have issues that keep them from being
-                bulletproof.
+                {casamento.citacaoBiblica.textoCompleto}
               </p>
             </Parallax>
           </div>
         </div>
         <div className={s.cards} ref={cardsRectRef}>
           <HorizontalSlides>
-            <Card
-              className={s.card}
-              number="01"
-              text="Loss of performance budget due to using CSS transforms"
-            />
-            <Card
-              className={s.card}
-              number="02"
-              text="Inaccessibility from no page search support and native scrollbar"
-            />
-            <Card
-              className={s.card}
-              number="03"
-              text="Non-negligible import costs (12.1kb - 24.34kb gzipped)"
-            />
-            <Card
-              className={s.card}
-              number="04"
-              text="Limited animation systems for complex, scroll-based animations"
-            />
-            <Card
-              className={s.card}
-              number="05"
-              text="Erasing native APIs like Intersection-Observer, CSS Sticky, etc."
-            />
+            {casamento.historia.eventos.map((evento, index) => (
+              <Card
+                key={index}
+                className={s.card}
+                number={(index + 1).toString().padStart(2, '0')}
+              >
+                <p>
+                  <strong>{evento.titulo}</strong>
+                  <br />
+                  <small>{evento.data}</small>
+                  <br />
+                  <br />
+                  {evento.local && (
+                    <>
+                      {evento.local}
+                      <br />
+                      <br />
+                    </>
+                  )}
+                  {evento.noivo.depoimento && (
+                    <>
+                      <strong>João:</strong> {evento.noivo.depoimento}
+                      <br />
+                      <br />
+                    </>
+                  )}
+                  {evento.noiva.depoimento && (
+                    <>
+                      <strong>Gabrielle:</strong> {evento.noiva.depoimento}
+                    </>
+                  )}
+                </p>
+              </Card>
+            ))}
+            
           </HorizontalSlides>
         </div>
       </section>
@@ -415,36 +417,25 @@ export default function Home() {
         <div className={s.inner}>
           <div className={s.zoom}>
             <h2 className={cn(s.first, 'h1 vh')}>
-              so we built <br />
-              <span className="contrast">web scrolling</span>
+              {casamento.roadmap.titulo}
+              <br />
+              <span className="contrast">{casamento.roadmap.subtitulo}</span>
             </h2>
             <h2 className={cn(s.enter, 'h3 vh')}>
-              Enter <br /> Lenis
+              {casamento.noivos.iniciais}
             </h2>
-            <h2 className={cn(s.second, 'h1 vh')}>As it should be</h2>
+            <h2 className={cn(s.second, 'h1 vh')}>
+              {casamento.data.data}
+            </h2>
           </div>
         </div>
       </section>
-      <section className={cn('theme-light', s.featuring)} ref={whiteRectRef}>
-        <div className={s.inner}>
-          <div className={cn('layout-block', s.intro)}>
-            <p className="p-l">
-              Lenis is an{' '}
-              <Link
-                className="contrast semi-bold"
-                href="https://github.com/darkroomengineering/lenis"
-              >
-                open-source library
-              </Link>{' '}
-              built to standardize scroll experiences and sauce up websites with
-              butter-smooth navigation, all while using the platform and keeping
-              it accessible.
-            </p>
-          </div>
-        </div>
-        <section ref={featuresRectRef}>
-          <FeatureCards />
-        </section>
+      <section className={cn('theme-light', s.featuring)} ref={whiteRectRef} id="process">
+        <RoadmapCards
+          etapas={casamento.roadmap.etapas}
+          titulo={casamento.roadmap.titulo}
+          subtitulo={casamento.roadmap.subtitulo}
+        />
       </section>
       <section
         ref={(node) => {
@@ -452,31 +443,39 @@ export default function Home() {
           inUseRef.current = node
         }}
         className={cn('theme-light', s['in-use'], visible && s.visible)}
+        id="connect"
       >
         <div className="layout-grid">
           <aside className={s.title}>
             <p className="h3">
               <AppearTitle>
-                <span>Lenis</span>
+                <span>{casamento.secoes.connect.titulo}</span>
 
                 <br />
-                <span className="grey">in use</span>
+                <span className="grey">{casamento.secoes.connect.subtitulo}</span>
               </AppearTitle>
             </p>
           </aside>
-          <ul className={s.list}>
-            {projects.map(({ title, source, href }, i) => (
-              <li key={i}>
-                <ListItem
-                  title={title}
-                  source={source}
-                  href={href}
-                  index={i}
-                  visible={visible}
-                />
-              </li>
+          <div className={s.list}>
+            {casamento.contato.opcoes.map((opcao, i) => (
+              <div key={i} style={{ marginBottom: '2rem' }}>
+                <h4 className="h4">{opcao.tipo}</h4>
+                <p className="p">
+                  <Link
+                    href={`mailto:${opcao.email}?subject=${encodeURIComponent(opcao.assunto)}`}
+                    className="contrast semi-bold"
+                  >
+                    {opcao.email}
+                  </Link>
+                </p>
+              </div>
             ))}
-          </ul>
+            {casamento.informacoesAdicionais.observacoes.map((obs, i) => (
+              <p key={i} className="p" style={{ marginTop: '1rem' }}>
+                {obs}
+              </p>
+            ))}
+          </div>
         </div>
       </section>
     </Layout>
@@ -490,3 +489,4 @@ export async function getStaticProps() {
     }, // will be passed to the page component as props
   }
 }
+

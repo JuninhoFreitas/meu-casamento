@@ -1,86 +1,53 @@
+import { casamento } from 'content/casamento'
 import cn from 'clsx'
-import { Button } from 'components/button'
 import { Link } from 'components/link'
-import dynamic from 'next/dynamic'
 import s from './footer.module.scss'
-
-const GitHub = dynamic(() => import('icons/github.svg'), { ssr: false })
 
 export const Footer = () => {
   return (
     <footer className={cn('theme-light', s.footer)}>
       <div className={cn(s.top, 'layout-grid hide-on-mobile')}>
         <p className={cn(s['first-line'], 'h1')}>
-          Lenis is <br />
-          <span className="contrast">Open source</span>
+          {casamento.noivos.nomeCompleto}
+          <br />
+          <span className="contrast">Casamento</span>
         </p>
-        {/* <div className={s['shameless-plug']}>
-          <p className="h4">Studio Freight</p>
-          <p className="p-s">
-            An independent creative <br /> studio built on principle
-          </p>
-        </div> */}
-        <p className={cn(s['last-line'], 'h1')}>
-          & open to <span className="hide-on-desktop">&nbsp;</span> features{' '}
-          <br /> and sponsors
+        <p className={cn(s['last-line'], 'h3')}>
+          {casamento.data.data} <br />
+          <span className="hide-on-desktop">&nbsp;</span>
+          {casamento.local.cerimonia.cidade} - {casamento.local.cerimonia.estado}
         </p>
-        <Button
-          className={s.cta}
-          arrow
-          icon={<GitHub />}
-          href="https://github.com/sponsors/darkroomengineering"
-        >
-          Let's build together
-        </Button>
       </div>
       <div className={cn(s.top, 'layout-block hide-on-desktop')}>
-        {/* <div className={s['shameless-plug']}>
-          <p className="h4">Studio Freight</p>
-          <p className="p-s">
-            An independent creative <br /> studio built on principle
-          </p>
-        </div> */}
         <p className={cn(s['first-line'], 'h1')}>
-          Lenis is <br />
-          <span className="contrast">Open source</span>
-          <br /> & open to <br /> features and sponsors
+          {casamento.noivos.nomeCompleto}
+          <br />
+          <span className="contrast">Casamento</span>
+          <br /> {casamento.data.data}
+          <br /> {casamento.local.cerimonia.cidade} - {casamento.local.cerimonia.estado}
         </p>
       </div>
       <div className={s.bottom}>
         <div className={s.links}>
+          {casamento.metadata.site.navegacao.map((item) => (
+            <Link
+              key={item.id}
+              className={cn(s.link, 'p-xs')}
+              href={`#${item.id}`}
+            >
+              {item.label}
+            </Link>
+          ))}
           <Link
             className={cn(s.link, 'p-xs')}
-            href="https://twitter.com/darkroomdevs"
+            href={`mailto:${casamento.contato.email}`}
           >
-            Twitter
-          </Link>
-          <Link
-            className={cn(s.link, 'p-xs')}
-            href="https://github.com/darkroomengineering"
-          >
-            GitHub
-          </Link>
-          <Link
-            className={cn(s.link, 'p-xs')}
-            href="https://darkroom.engineering/"
-          >
-            Website
-          </Link>
-          <Link className={cn(s.link, 'p-xs')} href="https://studiofreight.com">
-            Designed by Studio Freight
+            Contato
           </Link>
         </div>
         <p className={cn('p-xs', s.tm)}>
-          <span>©</span> {new Date().getFullYear()} darkroom.engineering
+          <span>©</span> {casamento.metadata.site.copyright}
         </p>
-        <Button
-          className={cn(s.cta, 'hide-on-desktop')}
-          arrow
-          icon={<GitHub />}
-          href="https://github.com/sponsors/darkroomengineering"
-        >
-          Let's build together
-        </Button>
       </div>
     </footer>
   )

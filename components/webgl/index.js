@@ -137,98 +137,98 @@ function Particles({
 
 const steps = [
   {
-    position: [-0.1, -1.75, 0],
-    scale: 0.045,
-    rotation: [0, Math.PI * 0.5, 0],
+    position: [0, -0.4, 0],
+    scale: 0.006,
+    rotation: [0.4, Math.PI * 1, 1],
     type: 1,
   },
   {
     position: [0.15, -0.4, 0],
-    scale: 0.02,
+    scale: 0.007,
     rotation: [
-      MathUtils.degToRad(-45),
-      MathUtils.degToRad(-135),
+      MathUtils.degToRad(45),
+      MathUtils.degToRad(-150),
       MathUtils.degToRad(-45),
     ],
     type: 1,
   },
   {
     position: [0.15, -0.4, 0],
-    scale: 0.02,
+    scale: 0.008,
     rotation: [
       MathUtils.degToRad(45),
-      MathUtils.degToRad(-315),
+      MathUtils.degToRad(150),
       MathUtils.degToRad(-45),
     ],
     type: 1,
   },
   {
     position: [-0.2, -0.35, 0],
-    scale: 0.02,
+    scale: 0.009,
     rotation: [
       MathUtils.degToRad(-90),
-      MathUtils.degToRad(-405),
+      MathUtils.degToRad(150),
       MathUtils.degToRad(-45),
     ],
     type: 1,
   },
   {
     position: [-1.2, -0.6, 0],
-    scale: 0.05,
+    scale: 0.01,
     rotation: [
       MathUtils.degToRad(-90),
-      MathUtils.degToRad(-405),
+      MathUtils.degToRad(150),
       MathUtils.degToRad(-45),
     ],
     type: 1,
   },
   {
     position: [-1.6, -0.6, 0],
-    scale: 0.05,
+    scale: 0.011,
     rotation: [
       MathUtils.degToRad(-90),
-      MathUtils.degToRad(-405),
+      MathUtils.degToRad(150),
       MathUtils.degToRad(-45),
     ],
     type: 1,
   },
   {
     position: [0.16, -1.38, 0],
-    scale: 0.05,
+    scale: 0.012,
     rotation: [
       MathUtils.degToRad(0),
-      MathUtils.degToRad(200),
+      MathUtils.degToRad(100),
       MathUtils.degToRad(-16),
     ],
     type: 2,
   },
   {
     position: [0, -0.68, 0],
-    scale: 0.04,
+    scale: 0.013,
     rotation: [
       MathUtils.degToRad(0),
-      MathUtils.degToRad(-14),
+      MathUtils.degToRad(-150),
       MathUtils.degToRad(-16),
     ],
     type: 2,
   },
   {
     position: [-0.22, -0.61, 0],
-    scale: 0.03,
+    scale: 0.014,
     rotation: [
       MathUtils.degToRad(0),
-      MathUtils.degToRad(-(157 + 360)),
+      MathUtils.degToRad(-120),
       MathUtils.degToRad(-16),
     ],
     type: 2,
   },
   {
     position: [0.2, -0.46, 0],
-    scale: 0.03,
+    scale: 0.015,
     rotation: [
       MathUtils.degToRad(0),
-      MathUtils.degToRad(-(340 + 360)),
-      MathUtils.degToRad(-16),
+      MathUtils.degToRad(-120),
+      MathUtils.degToRad(150),
     ],
     type: 2,
   },
@@ -245,8 +245,8 @@ const material = new MeshPhysicalMaterial({
 })
 
 export function Arm() {
-  const { scene: arm1 } = useGLTF('/models/arm.glb')
-  const { scene: arm2 } = useGLTF('/models/arm2.glb')
+  const { scene: arm1 } = useGLTF('/models/Lovearrowheart.glb')
+  const { scene: arm2 } = useGLTF('/models/Lovearrowheart.glb')
   const [type, setType] = useState(1)
 
   const [{ color, roughness, metalness, wireframe }, setMaterial] = useControls(
@@ -254,7 +254,7 @@ export function Arm() {
       color: '#b0b0b0',
       roughness: {
         min: 0,
-        value: 0.4,
+        value: 1,
         max: 1,
       },
       metalness: {
@@ -282,7 +282,7 @@ export function Arm() {
     () => ({
       light1: {
         step: 1,
-        value: [-200, 150, 50],
+        value: [0, 200, 50],
       },
       light2: {
         step: 1,
@@ -380,8 +380,8 @@ export function Arm() {
   useEffect(() => {
     if (step === 0) {
       setLights({
-        light1Intensity: 0.35,
-        light2Intensity: 0.15,
+        light1Intensity: 1,
+        light2Intensity: 1,
         lightsColor: '#FF98A2',
         ambientColor: '#FF98A2',
       })

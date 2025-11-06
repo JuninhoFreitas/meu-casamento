@@ -1,44 +1,44 @@
-# Lenis Website
+# Site de Casamento - Gabrielle & João
+
+Site de casamento de Gabrielle & João, desenvolvido com Next.js e Lenis.
 
 ## Setup
 
-The usual process for Next.js based apps/websites:
-
-1. Install node modules:
+1. Instalar dependências:
 
    `$ pnpm i`
 
-2. Get the .env variables from Vercel (check `.env.template`), after [installing Vercel CLI](https://vercel.com/docs/cli):
+2. Configurar variáveis de ambiente (se necessário):
 
    `$ vc link`
 
    `$ vc env pull`
 
-3. Set up GSAP authentication:
+3. Configurar autenticação GSAP (se necessário):
    
-   Copy `.npmrc.config` to `.npmrc` and replace `GSAP_AUTH_TOKEN` with your token
+   Copiar `.npmrc.config` para `.npmrc` e substituir `GSAP_AUTH_TOKEN` com seu token
 
-4. Run development environment:
+4. Executar ambiente de desenvolvimento:
 
    `$ pnpm dev`
 
-## Stack
+## Stack Técnico
 
-- [Lenis](https://github.com/darkroomengineering/lenis) - Smooth scroll library
-- [Tempus](https://github.com/darkroomengineering/tempus) - Animation timing control
-- [Hamo](https://github.com/darkroomengineering/hamo) - React hooks and utilities
-- [PNPM](https://pnpm.io/) - Package manager
-- [Next.js](https://nextjs.org/) - React framework
-- [Three.js](https://threejs.org/) - 3D graphics
-- [@react-three/drei](https://github.com/pmndrs/drei) - Three.js React utilities
-- [@react-three/fiber](https://docs.pmnd.rs/react-three-fiber/getting-started/introduction) - Three.js React renderer
-- [GSAP Business](https://greensock.com/gsap/) - Animation library
-- [Sass Modules](https://sass-lang.com/) - CSS preprocessing
-- [Zustand](https://github.com/pmndrs/zustand) - State management
-- [Next PWA](https://www.npmjs.com/package/next-pwa) - Progressive Web App support
-- [Next SEO](https://github.com/garmeeh/next-seo) - SEO optimization
-- [Next Sitemap](https://github.com/iamvishnusankar/next-sitemap) - Sitemap generation
-- [@svgr/webpack](https://github.com/gregberge/svgr/tree/main) - SVG imports
+- [Lenis](https://github.com/darkroomengineering/lenis) - Biblioteca de scroll suave
+- [Tempus](https://github.com/darkroomengineering/tempus) - Controle de timing de animações
+- [Hamo](https://github.com/darkroomengineering/hamo) - Hooks e utilitários React
+- [PNPM](https://pnpm.io/) - Gerenciador de pacotes
+- [Next.js](https://nextjs.org/) - Framework React
+- [Three.js](https://threejs.org/) - Gráficos 3D
+- [@react-three/drei](https://github.com/pmndrs/drei) - Utilitários Three.js React
+- [@react-three/fiber](https://docs.pmnd.rs/react-three-fiber/getting-started/introduction) - Renderer Three.js React
+- [GSAP Business](https://greensock.com/gsap/) - Biblioteca de animações
+- [Sass Modules](https://sass-lang.com/) - Pré-processamento CSS
+- [Zustand](https://github.com/pmndrs/zustand) - Gerenciamento de estado
+- [Next PWA](https://www.npmjs.com/package/next-pwa) - Suporte a Progressive Web App
+- [Next SEO](https://github.com/garmeeh/next-seo) - Otimização SEO
+- [Next Sitemap](https://github.com/iamvishnusankar/next-sitemap) - Geração de sitemap
+- [@svgr/webpack](https://github.com/gregberge/svgr/tree/main) - Importação de SVGs
 
 ## Code Style & Linting
 

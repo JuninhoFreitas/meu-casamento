@@ -1,7 +1,7 @@
 {
-  "name": "website",
+  "name": "casamento-gabrielle-joao",
   "version": "1.0.0",
-  "description": "Lenis is a smooth scroll library to normalize the scrolling experience across devices",
+  "description": "Site de casamento de Gabrielle & João - 07 de Março de 2026",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

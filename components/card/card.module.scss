@@ -40,12 +40,33 @@
     font-weight: 700;
     text-transform: uppercase;
     // font-stretch: expanded;
-    line-height: 100%;
+    line-height: 120%;
     // letter-spacing: -0.01em;
-    font-size: mobile-vw(20px);
+    font-size: mobile-vw(16px);
 
     @include desktop {
-      font-size: desktop-vw(28px);
+      font-size: desktop-vw(20px);
+    }
+
+    p {
+      text-transform: none;
+      font-weight: 400;
+      line-height: 140%;
+      font-size: mobile-vw(14px);
+
+      @include desktop {
+        font-size: desktop-vw(16px);
+      }
+
+      strong {
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      small {
+        font-size: 0.85em;
+        opacity: 0.8;
+      }
     }
 
     span {

@@ -173,4 +173,111 @@
       }
     }
   }
+
+  // Roadmap variant
+  &.roadmap {
+    background-color: var(--white);
+    border: mobile-vw(2px) solid var(--black);
+    padding: mobile-vw(24px);
+    margin-bottom: mobile-vw(16px);
+
+    @include desktop {
+      border-width: desktop-vw(2px);
+      padding: desktop-vw(32px);
+      margin-bottom: desktop-vw(24px);
+    }
+
+    &::before,
+    &::after {
+      display: none;
+    }
+
+    .inner {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0;
+
+      @include desktop {
+        flex-direction: row;
+        align-items: flex-start;
+      }
+    }
+
+    .number {
+      font-family: var(--font-anton);
+      font-size: mobile-vw(48px);
+      line-height: 1;
+      color: var(--black);
+      margin-bottom: mobile-vw(16px);
+
+      @include desktop {
+        font-size: desktop-vw(64px);
+        margin-bottom: 0;
+        margin-right: desktop-vw(32px);
+        flex-shrink: 0;
+      }
+    }
+
+    .content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .title {
+      margin-bottom: mobile-vw(12px);
+
+      @include desktop {
+        margin-bottom: desktop-vw(16px);
+      }
+
+      .text {
+        font-family: var(--font-roboto);
+        font-weight: 700;
+        font-size: mobile-vw(20px);
+        line-height: 1.2;
+        color: var(--black);
+
+        @include desktop {
+          font-size: desktop-vw(24px);
+        }
+      }
+    }
+
+    .description {
+      font-family: var(--font-roboto);
+      font-weight: 400;
+      font-size: mobile-vw(16px);
+      line-height: 1.5;
+      color: var(--black);
+
+      @include desktop {
+        font-size: desktop-vw(18px);
+      }
+    }
+
+    @include desktop {
+      &:not(.visible) {
+        transform: translateY(100%);
+        opacity: 0;
+
+        .number,
+        .text,
+        .description > * {
+          transform: translateY(100%);
+        }
+      }
+
+      &.visible {
+        transform: translateY(0);
+        opacity: 1;
+
+        .number,
+        .text,
+        .description > * {
+          transform: translateY(0);
+        }
+      }
+    }
+  }
 }

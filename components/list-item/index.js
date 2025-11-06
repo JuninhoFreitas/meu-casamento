@@ -12,7 +12,35 @@ export const ListItem = ({
   href,
   visible,
   index,
+  variant,
+  number,
+  description,
 }) => {
+  if (variant === 'roadmap') {
+    return (
+      <div
+        className={cn(className, s.item, s.roadmap, visible && s.visible)}
+        style={{ '--i': index }}
+      >
+        <div className={s.inner}>
+          {number && <div className={s.number}>{number}</div>}
+          <div className={s.content}>
+            {title && (
+              <div className={s.title}>
+                <span className={s.text}>{title}</span>
+              </div>
+            )}
+            {description && (
+              <div className={s.description}>
+                <span>{description}</span>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <Link
       href={href}

@@ -30,10 +30,10 @@ export function CustomHead({ title = '', description, image, keywords }) {
           name="keywords"
           content={keywords && keywords.length ? keywords.join(',') : keywords}
         />
-        <meta name="author" content="darkroom.engineering" />
+        <meta name="author" content="Gabrielle & João" />
         <meta name="referrer" content="no-referrer" />
         <meta name="format-detection" content="telephone=no" />
-        <meta name="geo.region" content="US" />
+        <meta name="geo.region" content="BR-RS" />
 
         {/* START FAVICON */}
         <link rel="manifest" href="/site.webmanifest" />

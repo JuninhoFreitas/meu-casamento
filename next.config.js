@@ -15,6 +15,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 })
 
 const nextConfig = {
+  output: 'standalone',
   reactStrictMode: true,
   experimental: {
     optimizeCss: true,
