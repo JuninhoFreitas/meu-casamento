@@ -2,33 +2,33 @@
 // import s from './modal.module.scss'
 // import cn from 'clsx'
 // import dynamic from 'next/dynamic'
-import { useEffect } from 'react'
-import { useStore } from 'lib/store'
+// import { useEffect } from 'react'
+// import { useStore } from 'lib/store'
 
 // const GitHub = dynamic(() => import('icons/sponsor.svg'), { ssr: false })
 
 export function Modal() {
   // const [active, setActive] = useState(false)
 
-  const lenis = useStore(({ lenis }) => lenis)
+  // const lenis = useStore(({ lenis }) => lenis)
 
-  useEffect(() => {
-    // const timeout = setTimeout(() => {
-    //   setActive(true)
-    // }, 10000)
+  // useEffect(() => {
+  //   // const timeout = setTimeout(() => {
+  //   //   setActive(true)
+  //   // }, 10000)
 
-    return () => clearTimeout(timeout)
-  }, [])
+  //   return () => clearTimeout(timeout)
+  // }, [])
 
-  useEffect(() => {
-    if (!lenis) return
+  // useEffect(() => {
+  //   if (!lenis) return
 
-    if (active) {
-      lenis.stop()
-    } else {
-      lenis.start()
-    }
-  }, [active])
+  //   if (active) {
+  //     lenis.stop()
+  //   } else {
+  //     lenis.start()
+  //   }
+  // }, [active])
 
   return (
     <div></div>
