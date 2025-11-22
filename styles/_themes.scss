@@ -17,6 +17,11 @@ $themes: (
     'secondary': map.get($colors, 'white'),
     'contrast': map.get($colors, 'pink'),
   ),
+  'marsala': (
+    'primary': map.get($colors, 'salvia'),
+    'secondary': map.get($colors, 'marsala'),
+    'contrast': map.get($colors, 'burgundy'),
+  ),
   'contrast': (
     'primary': map.get($colors, 'pink'),
     'secondary': map.get($colors, 'black'),
