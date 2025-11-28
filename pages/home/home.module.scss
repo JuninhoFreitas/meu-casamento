@@ -261,7 +261,7 @@ $intro-duration: 2050ms;
 
     @include desktop {
       position: sticky;
-      top: 33%;
+      top: 53%;
       align-self: start;
       border-left: 4px solid var(--theme-contrast);
       grid-column: 3 / span 4;

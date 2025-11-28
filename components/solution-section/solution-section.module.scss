@@ -1,0 +1,72 @@
+@import 'styles/_functions';
+
+.solution {
+  position: relative;
+  color: var(--white);
+  height: 500vh;
+
+  @include desktop {
+    height: 1000vh;
+  }
+
+  .inner {
+    position: sticky;
+    top: 0;
+    margin: 0 auto;
+    overflow: hidden;
+    height: calc(100 * var(--vh, 1vh));
+
+    &::after {
+      content: '';
+      background-color: currentColor;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      left: 50%;
+      transform: translateX(-50%) scaleX(var(--progress2));
+      top: 0;
+    }
+
+    @include desktop {
+      height: 100vh;
+    }
+
+    .zoom {
+      align-self: start;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      transform: scale(calc(1 + (var(--progress1)) * 3));
+      padding: mobile-vh(16px);
+
+      @include desktop {
+        padding: desktop-vh(40px) var(--layout-margin);
+      }
+    }
+  }
+
+  .first {
+    transform: translateY(calc(var(--progress1) * -100%));
+  }
+
+  .second {
+    text-align: end;
+  }
+
+  .enter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-54.2%, -50%) scale(calc((var(--progress1) * 18.2)));
+    transform-origin: 50% calc(50% - (var(--progress1) * 27%));
+    opacity: calc(var(--progress1) * 2);
+    text-align: center;
+
+    @include desktop {
+      transform: translate(-50%, -50%) scale(calc((var(--progress1) * 8.5)));
+      transform-origin: 50% calc(50% - (var(--progress1) * 25%));
+    }
+  }
+}
+

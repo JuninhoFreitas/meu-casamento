@@ -21,6 +21,11 @@ const PageTransition = dynamic(
   { ssr: false }
 )
 
+const FallingPetals = dynamic(
+  () => import('components/falling-petals').then((mod) => mod.FallingPetals),
+  { ssr: false }
+)
+
 export function Layout({
   seo = { title: '', description: '', image: '', keywords: '' },
   children,
@@ -103,6 +108,7 @@ export function Layout({
       <CustomHead {...seo} />
       <div className={cn(`theme-${theme}`, s.layout, className)}>
         <PageTransition />
+        <FallingPetals />
         <Intro />
         <Cursor />
         <Scrollbar />

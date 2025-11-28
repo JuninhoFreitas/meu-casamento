@@ -1,0 +1,51 @@
+@import 'styles/_functions';
+
+.featuring {
+  position: relative;
+  padding-bottom: mobile-vw(160px);
+  color: var(--theme-secondary);
+
+  &::before {
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: mobile-vw(150px);
+    position: absolute;
+    background: linear-gradient(
+      to bottom,
+      var(--theme-primary),
+      var(--theme-primary-transparent)
+    );
+
+    @include desktop {
+      height: desktop-vw(150px);
+    }
+  }
+
+  @include desktop {
+    padding: desktop-vw(40px) 0;
+    padding-bottom: desktop-vw(320px);
+  }
+
+  .inner {
+    position: relative;
+  }
+
+  .intro {
+    padding-bottom: mobile-vw(160px);
+
+    @include desktop {
+      padding-bottom: desktop-vw(440px);
+    }
+  }
+
+  .list {
+    grid-column: 1 / -1;
+
+    @include desktop {
+      grid-column: 1 / -1;
+    }
+  }
+}
+

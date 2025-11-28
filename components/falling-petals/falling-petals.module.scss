@@ -1,0 +1,20 @@
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  perspective: 600px;
+}
+
+.dot {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  background: url(https://i.imgur.com/G4RQnIm.png);
+  background-size: 100% 100%;
+}
+

@@ -1,0 +1,60 @@
+@import 'styles/_functions';
+
+.rethink {
+  .pre {
+    margin-bottom: mobile-vw(160px);
+
+    @include desktop {
+      margin-bottom: desktop-vw(240px);
+    }
+
+    .highlight {
+      @include desktop {
+        border-left: 4px solid var(--theme-contrast);
+        grid-column: 3 / span 4;
+        top: desktop-vw(64px);
+        padding: desktop-vw(24px) 0 desktop-vw(24px) desktop-vw(32px);
+      }
+    }
+
+    .comparison {
+      grid-column: 1 / -1;
+
+      @include desktop {
+        grid-column: 7 / span 4;
+        margin-top: desktop-vw(256px);
+      }
+    }
+  }
+
+  .cards {
+    margin-bottom: mobile-vw(160px);
+
+    @include desktop {
+      margin-bottom: desktop-vw(400px);
+    }
+
+    .card {
+      @include desktop {
+        &:first-child {
+          margin-left: calc(
+            columns(6) + var(--layout-margin) + var(--layout-columns-gap)
+          );
+        }
+
+        &:not(:last-child) {
+          margin-right: calc(
+            var(--layout-columns-gap) * 2 + var(--layout-column-width)
+          );
+        }
+
+        &:last-child {
+          margin-right: calc(
+            columns(2) + var(--layout-margin) + var(--layout-columns-gap)
+          );
+        }
+      }
+    }
+  }
+}
+

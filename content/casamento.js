@@ -119,7 +119,7 @@ export const casamento = {
   },
   roadmap: {
     titulo: 'Roadmap da Nossa Celebração',
-    subtitulo: 'Sua missão, caso decida aceitar, é celebrar com a gente! =)',
+    subtitulo: 'Sua missão, caso decida aceitar, é celebrar com a gente!',
     etapas: [
       {
         numero: '01',
@@ -190,18 +190,18 @@ export const casamento = {
       observacao:
         'Nota: Há uma discrepância entre o horário mencionado no Hero (9h00) e no Works (15:00). O horário de 15:00 parece ser o correto para a cerimônia.',
     },
-    works: {
+    infos: {
       titulo: 'Informações do casamento',
       subtitulo: 'Tudo que você precisa saber sobre o nosso grande dia',
     },
-    story: {
+    ourStorySectionInfo: {
       titulo: 'Nossa história de amor',
     },
-    process: {
+    roadmapSectionInfo: {
       titulo: 'Roadmap da Nossa Celebração',
       subtitulo: 'Sua missão, caso decida aceitar, é celebrar com a gente! =)',
     },
-    connect: {
+    connectSectionInfo: {
       titulo: 'Entre em contato conosco',
       subtitulo:
         'Tem dúvidas sobre o casamento? Precisa confirmar presença? Entre em contato conosco!',

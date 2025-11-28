@@ -1,0 +1,33 @@
+@import 'styles/_functions';
+
+.in-use {
+  padding-bottom: mobile-vw(160px);
+  color: var(--theme-secondary);
+
+  @include desktop {
+    padding-bottom: desktop-vw(400px);
+  }
+
+  .title {
+    grid-column: 1 / -1;
+    @include desktop {
+      grid-column: 1 / span 5;
+    }
+  }
+
+  .list {
+    grid-column: 1 / -1;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    @include desktop {
+      grid-column: 6 / span 7;
+    }
+
+    li {
+      list-style: none;
+    }
+  }
+}
+
