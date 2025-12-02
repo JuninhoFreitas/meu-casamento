@@ -21,7 +21,7 @@ export const casamento = {
       estado: 'RS',
       pais: 'Brasil',
       enderecoCompleto:
-        'Igreja Bíblica Unidos no Senhor, Novo Hamburgo - RS, Brasil',
+        'R Machado de Assis, 620 - Ideal, Novo Hamburgo - RS, Brasil',
     },
   },
   hospedagem: {
@@ -191,7 +191,9 @@ export const casamento = {
         'Nota: Há uma discrepância entre o horário mencionado no Hero (9h00) e no Works (15:00). O horário de 15:00 parece ser o correto para a cerimônia.',
     },
     infos: {
-      titulo: 'Informações do casamento',
+      titulo: `Informações
+do
+casamento`,
       subtitulo: 'Tudo que você precisa saber sobre o nosso grande dia',
     },
     ourStorySectionInfo: {

@@ -1,5 +1,4 @@
 import { useScroll } from 'hooks/use-scroll'
-import { clamp } from 'lib/maths'
 import { useStore } from 'lib/store'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useWindowSize } from 'react-use'
@@ -38,9 +37,9 @@ const IMAGES = [
 // Valores são progresso do scroll (0 a 1) onde há menos conteúdo
 const PREFERRED_AREAS = [
   { start: 0.05, end: 0.15, side: 'right' }, // Após hero
-  { start: 0.25, end: 0.35, side: 'left' }, // Durante why
+  { start: 0.25, end: 0.35, side: 'right' }, // Durante why
   { start: 0.45, end: 0.55, side: 'right' }, // Durante story
-  { start: 0.65, end: 0.75, side: 'left' }, // Durante solution
+  { start: 0.65, end: 0.75, side: 'right' }, // Durante solution
   { start: 0.80, end: 0.90, side: 'right' }, // Durante featuring
 ]
 
@@ -61,13 +60,17 @@ function FloatingImage({ src, index, total }) {
 
     // Posição X baseada no lado preferido
     const isRight = area.side === 'right'
+    // Em desktop: imagens do lado direito sempre ficam na última coluna (coluna 12)
+    // Usamos um valor fixo para garantir consistência
+    // Para imagens do lado esquerdo, mantemos variação baseada no índice
     const xPercent = isRight
-      ? 60 + Math.random() * 30 // 60-90% da largura
-      : 10 + Math.random() * 20 // 10-30% da largura
+      ? 93 // Valor fixo para garantir posicionamento consistente à direita
+      : 10 + (index % 10) * 2 // 10-28% da largura, baseado no índice (determinístico)
 
     return {
       scrollProgress,
       xPercent,
+      isRight, // Armazena o lado para uso consistente no useScroll
       rotation: (Math.random() - 0.5) * 12, // Rotação aleatória entre -6 e 6 graus
       scale: 0.85 + Math.random() * 0.15, // Escala entre 0.85 e 1.0
     }
@@ -75,30 +78,50 @@ function FloatingImage({ src, index, total }) {
 
   // Controla visibilidade e posição baseada no scroll
   useScroll(({ scroll, limit }) => {
-    if (!containerRef.current || !lenis || !limit) return
+    if (!containerRef.current || !lenis) return
+    
+    // Se limit não estiver disponível ainda, usa um valor padrão baseado no scroll atual
+    const scrollLimit = limit || scroll * 2 || windowHeight * 10
 
-    const targetScrollY = position.scrollProgress * limit
+    const targetScrollY = position.scrollProgress * scrollLimit
     const currentScrollY = scroll
     const distance = Math.abs(currentScrollY - targetScrollY)
     const viewportHeight = windowHeight
+    const isMobile = windowWidth <= 800 // Breakpoint mobile
 
     // Imagem fica visível quando está próxima da sua posição alvo
-    const visibilityRange = viewportHeight * 1.5
+    // Aumenta o range de visibilidade para garantir que apareçam
+    const visibilityRange = viewportHeight * 2.5
     const shouldBeVisible = distance < visibilityRange
 
     if (shouldBeVisible && !isExpanded) {
-      // Calcula opacidade baseada na proximidade
-      const maxDistance = viewportHeight * 1.0
-      const opacity = clamp(0, 1 - distance / maxDistance, 1)
+      // Quando a imagem está visível, sempre usa opacidade 100%
+      const opacity = 1
 
       // Calcula posição Y relativa ao scroll
       const relativeY = targetScrollY - currentScrollY
       const yOffset = relativeY + windowHeight * 0.15 // Offset para não ficar no topo
 
       if (containerRef.current) {
-        const x = (windowWidth * position.xPercent) / 100
-        containerRef.current.style.opacity = opacity.toString()
-        containerRef.current.style.transform = `translate(${x}px, ${yOffset}px) rotate(${position.rotation}deg) scale(${position.scale})`
+        // Em mobile: o CSS já posiciona à direita mostrando apenas 10vw
+        // Em desktop: posiciona imagens do lado direito na última coluna
+        if (isMobile) {
+          // Em mobile: posiciona com left: calc(100vw - 10vw) para mostrar 10% da largura da viewport
+          containerRef.current.style.opacity = opacity.toString()
+          containerRef.current.style.left = 'calc(100vw - 10vw)'
+          containerRef.current.style.right = 'auto'
+          containerRef.current.style.transform = `translate(0, ${yOffset}px) rotate(${position.rotation}deg) scale(${position.scale})`
+        } else {
+          // Em desktop: TODAS as imagens ficam à direita na última coluna (coluna 12)
+          // Margin desktop é 40px - sempre posiciona na mesma posição à direita
+          const margin = 10 // desktop margin
+          const rightPosition = margin
+          
+          containerRef.current.style.opacity = opacity.toString()
+          containerRef.current.style.left = 'auto'
+          containerRef.current.style.right = `${rightPosition}px`
+          containerRef.current.style.transform = `translate(0, ${yOffset}px) rotate(${position.rotation}deg) scale(${position.scale})`
+        }
       }
 
       if (!isVisible) {
@@ -113,6 +136,17 @@ function FloatingImage({ src, index, total }) {
       }
     }
   })
+
+  // Inicializa posição no mount
+  useEffect(() => {
+    if (!containerRef.current) return
+    
+    const isMobile = windowWidth <= 800
+    if (isMobile) {
+      containerRef.current.style.left = 'calc(100vw - 10vw)'
+      containerRef.current.style.right = 'auto'
+    }
+  }, [windowWidth])
 
   const handleClick = () => {
     setIsExpanded(!isExpanded)
@@ -149,7 +183,7 @@ function FloatingImage({ src, index, total }) {
       ref={containerRef}
       className={`${s.imageContainer} ${isVisible ? s.visible : ''} ${isExpanded ? s.expanded : ''}`}
       style={{
-        zIndex: isExpanded ? 1000 : 10 + index,
+        zIndex: isExpanded ? 1000 : 10 + index
       }}
       onClick={(e) => {
         e.stopPropagation()
@@ -175,6 +209,11 @@ function FloatingImage({ src, index, total }) {
           className={s.image}
           loading="lazy"
         />
+        {windowWidth <= 800 && (
+          <div className={s.expandIcon}>
+            <div className={s.expandIconInner} />
+          </div>
+        )}
       </div>
     </div>
   )
@@ -185,14 +224,22 @@ export function FloatingImages({ roadmapRef }) {
   const { height: windowHeight } = useWindowSize()
 
   useScroll(() => {
-    if (!roadmapRef?.current) return
+    if (!roadmapRef?.current) {
+      // Se não houver roadmapRef, sempre mostra as imagens
+      if (isHidden) {
+        setIsHidden(false)
+      }
+      return
+    }
 
     const rect = roadmapRef.current.getBoundingClientRect()
     // Se a seção roadmap estiver visível na tela
-    const isVisible = rect.top < windowHeight && rect.bottom > 0
+    // Só esconde se estiver completamente visível (top < 0 e bottom > windowHeight)
+    const isFullyVisible = rect.top < 0 && rect.bottom > windowHeight
     
-    if (isVisible !== isHidden) {
-      setIsHidden(isVisible)
+    // Só esconde quando a seção está completamente visível
+    if (isFullyVisible !== isHidden) {
+      setIsHidden(isFullyVisible)
     }
   })
 

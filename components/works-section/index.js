@@ -12,7 +12,7 @@ export const WorksSection = ({ whyRectRef }) => {
   return (
     <section className={s.why} id="works" data-lenis-scroll-snap-align="start">
       <div className="layout-grid">
-        <h2 className={cn(s.sticky, 'h2', '')}>
+        <h2 className={cn(s.sticky, 'h2' )}>
           <AppearTitle>{casamento.secoes.infos.titulo}</AppearTitle>
         </h2>
         <aside className={s.features} ref={whyRectRef}>

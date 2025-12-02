@@ -9,14 +9,25 @@
 
   .sticky {
     grid-column: 1 / -1;
+    overflow-wrap: normal; // Permite quebra de linha respeitando palavras
+    word-wrap: normal;
+    
+    // Em mobile: reduz fonte e ajusta posicionamento para evitar corte
+    @include mobile {
+      font-size: mobile-vw(48px);
+      padding-left: mobile-vw(16px);
+    }
 
     @include desktop {
       position: sticky;
       top: 33%;
       align-self: start;
       border-left: 4px solid var(--theme-contrast);
-      grid-column: 3 / span 4;
+      grid-column: 2 / span 5; // Reposicionado mais à esquerda e aumentado para 5 colunas
       padding: desktop-vw(24px) desktop-vw(32px);
+      font-size: desktop-vw(80px); // Reduzido de 96px para 80px para garantir que caiba
+      max-width: 100%;
+      overflow: visible; // Garante que o texto não seja cortado
     }
   }
 

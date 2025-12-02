@@ -10,15 +10,16 @@ export const SolutionSection = ({ zoomRef, zoomWrapperRectRef }) => {
         zoomRef.current = node
       }}
       className={s.solution}
+      style={{ color: 'black' }}
     >
-      <div className={s.inner} style={{ marginBottom: '100px', alignContent: 'center'}} >
+      <div className={s.inner} style={{ marginBottom: '200px', alignContent: 'center'}} >
         <div className={s.zoom}>
           <h2 className={cn(s.first, 'h1 vh')} style={{ lineHeight: '1.1'}}>
             {casamento.roadmap.titulo}
             <br />
             <span className="contrast">{casamento.roadmap.subtitulo}</span>
           </h2>
-          <h2 className={cn(s.enter, 'h3 vh')}>
+          <h2 className={cn(s.enter, 'h3 vh')} style={{ color: 'black' }}>
             {casamento.noivos.iniciais}
           </h2>
           <h2 className={cn(s.second, 'h1 vh')}>
