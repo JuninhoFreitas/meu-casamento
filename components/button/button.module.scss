@@ -134,8 +134,14 @@
     }
   }
 
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
   @include hover {
-    &:hover {
+    &:hover:not(:disabled) {
       color: var(--theme-primary);
 
       &::after {

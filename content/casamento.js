@@ -31,10 +31,11 @@ export const casamento = {
     prazoReserva: '10/09',
   },
   presentes: {
-    descricao: 'Sugestões de presentes para compartilhar nossa felicidade',
+    descricao:
+      'Neste momento, o melhor presente que alguém pode nos dar é contribuir via PIX para a chave "brizollajr@gmail.com". Em breve, enviaremos a lista de presentes e endereços de envio (para aqueles que vêm de longe).',
     tipoPreferido: 'Monetário preferido',
     tags: ['Presentes', 'PIX disponível', 'Contato direto'],
-    observacao: 'PIX disponível para contribuições',
+    observacao: '',
   },
   confirmacaoPresenca: {
     descricao:
@@ -163,6 +164,8 @@ export const casamento = {
       },
       {
         tipo: 'Lista de Presentes',
+        descricao:
+          'Neste momento, o melhor presente que alguém pode nos dar é contribuir via PIX para a chave "brizollajr@gmail.com". Em breve, enviaremos a lista de presentes e endereços de envio (para aqueles que vêm de longe).',
         assunto: 'Lista de Presentes - Casamento Gabrielle & João',
         email: 'brizollajr@gmail.com',
       },

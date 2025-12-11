@@ -33,6 +33,11 @@ export const ConnectSection = ({ inuseRectRef, inUseRef, visible }) => {
           {casamento.contato.opcoes.map((opcao, i) => (
             <div key={i} style={{ marginBottom: '2rem' }}>
               <h4 className="h4">{opcao.tipo}</h4>
+              {opcao.descricao && (
+                <p className="p" style={{ marginBottom: '1rem' }}>
+                  {opcao.descricao}
+                </p>
+              )}
               <p className="p">
                 <Link
                   href={`mailto:${opcao.email}?subject=${encodeURIComponent(opcao.assunto)}`}

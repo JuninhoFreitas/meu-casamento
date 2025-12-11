@@ -13,6 +13,8 @@ export const Button = ({
   onClick,
   className,
   style,
+  type,
+  disabled,
 }) => {
   return href ? (
     <Link
@@ -32,6 +34,8 @@ export const Button = ({
     </Link>
   ) : (
     <button
+      type={type || 'button'}
+      disabled={disabled}
       className={cn(s.button, className, icon && s['has-icon'])}
       style={style}
       onClick={onClick}

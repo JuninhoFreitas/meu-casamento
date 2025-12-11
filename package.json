@@ -4,7 +4,7 @@
   "description": "Site de casamento de Gabrielle & João - 07 de Março de 2026",
   "scripts": {
     "dev": "next dev --webpack",
-    "build": "next build",
+    "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint --cache --fix",
     "postbuild": "next-sitemap",

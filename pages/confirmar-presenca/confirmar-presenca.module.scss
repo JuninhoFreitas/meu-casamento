@@ -1,0 +1,216 @@
+@import 'styles/_functions';
+
+.page {
+  min-height: 100vh;
+}
+
+.section {
+  padding-top: mobile-vw(120px);
+  padding-bottom: mobile-vw(160px);
+  color: var(--theme-secondary);
+
+  @include desktop {
+    padding-top: desktop-vw(200px);
+    padding-bottom: desktop-vw(400px);
+  }
+
+  .title {
+    grid-column: 1 / -1;
+    margin-bottom: mobile-vw(40px);
+
+    @include desktop {
+      grid-column: 1 / span 5;
+      margin-bottom: desktop-vw(80px);
+    }
+  }
+
+  .formWrapper {
+    grid-column: 1 / -1;
+
+    @include desktop {
+      grid-column: 6 / span 7;
+    }
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: mobile-vw(24px);
+
+    @include desktop {
+      gap: desktop-vw(32px);
+    }
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: mobile-vw(8px);
+
+    @include desktop {
+      gap: desktop-vw(12px);
+    }
+  }
+
+  .row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: mobile-vw(24px);
+
+    @include desktop {
+      grid-template-columns: 1fr 1fr;
+      gap: desktop-vw(32px);
+    }
+  }
+
+  .label {
+    font-family: var(--font-anton);
+    font-size: mobile-vw(14px);
+    text-transform: uppercase;
+    color: var(--theme-secondary);
+    opacity: 0.8;
+
+    @include desktop {
+      font-size: desktop-vw(16px);
+    }
+  }
+
+  .input,
+  .select,
+  .textarea {
+    width: 100%;
+    padding: mobile-vw(16px);
+    background-color: transparent;
+    border: desktop-vw(1px) solid var(--grey);
+    border-radius: 0;
+    color: var(--theme-secondary);
+    font-family: var(--font-anton);
+    font-size: mobile-vw(16px);
+    transition: border-color 0.3s var(--ease-in-out-quad);
+
+    @include desktop {
+      padding: desktop-vw(20px);
+      font-size: desktop-vw(18px);
+      border-width: desktop-vw(2px);
+    }
+
+    &:focus {
+      outline: none;
+      border-color: var(--pink);
+    }
+
+    &::placeholder {
+      color: var(--grey);
+      opacity: 0.5;
+    }
+  }
+
+  .textarea {
+    resize: vertical;
+    min-height: mobile-vw(120px);
+
+    @include desktop {
+      min-height: desktop-vw(150px);
+    }
+  }
+
+  .select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23b0b0b0' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right mobile-vw(16px) center;
+    padding-right: mobile-vw(48px);
+
+    @include desktop {
+      background-position: right desktop-vw(20px) center;
+      padding-right: desktop-vw(60px);
+    }
+  }
+
+  .successMessage,
+  .errorMessage {
+    padding: mobile-vw(16px);
+    border-radius: 0;
+    font-family: var(--font-anton);
+    font-size: mobile-vw(14px);
+    text-align: center;
+
+    @include desktop {
+      padding: desktop-vw(20px);
+      font-size: desktop-vw(16px);
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  .successMessage {
+    background-color: rgba(135, 148, 135, 0.2);
+    border: desktop-vw(1px) solid var(--salvia);
+    color: var(--salvia);
+
+    @include desktop {
+      border-width: desktop-vw(2px);
+    }
+  }
+
+  .errorMessage {
+    background-color: rgba(255, 152, 162, 0.1);
+    border: desktop-vw(1px) solid var(--pink);
+    color: var(--pink);
+
+    @include desktop {
+      border-width: desktop-vw(2px);
+    }
+  }
+
+  .submitWrapper {
+    margin-top: mobile-vw(24px);
+
+    @include desktop {
+      margin-top: desktop-vw(40px);
+    }
+  }
+
+  .submitButton {
+    width: 100%;
+    justify-content: center;
+
+    @include desktop {
+      width: auto;
+      min-width: desktop-vw(300px);
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  .backLink {
+    margin-top: mobile-vw(40px);
+    text-align: center;
+
+    @include desktop {
+      margin-top: desktop-vw(60px);
+    }
+  }
+
+  .backLinkText {
+    font-family: var(--font-anton);
+    font-size: mobile-vw(14px);
+    color: var(--grey);
+    text-decoration: none;
+    transition: color 0.3s var(--ease-in-out-quad);
+
+    @include desktop {
+      font-size: desktop-vw(16px);
+    }
+
+    &:hover {
+      color: var(--pink);
+    }
+  }
+}
