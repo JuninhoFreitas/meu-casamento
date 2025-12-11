@@ -101,9 +101,10 @@ export default function Home() {
     lenisLimit: lenis?.limit,
   })
 
-  useScroll((e) => {
-    console.log(window.scrollY, e.scroll, e.isScrolling, e.velocity, e.isLocked)
-  })
+  // Removido console.log para melhorar performance
+  // useScroll((e) => {
+  //   console.log(window.scrollY, e.scroll, e.isScrolling, e.velocity, e.isLocked)
+  // })
 
 
   const inUseRef = useRef()

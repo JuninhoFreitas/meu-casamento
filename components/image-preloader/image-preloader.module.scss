@@ -1,0 +1,69 @@
+@import 'styles/_functions';
+
+.wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--pink);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: desktop-vw(20px);
+  width: 100%;
+  max-width: desktop-vw(400px);
+  padding: 0 desktop-vw(40px);
+}
+
+.progressBar {
+  width: 100%;
+  height: desktop-vw(4px);
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: desktop-vw(2px);
+  overflow: hidden;
+  position: relative;
+}
+
+.progressFill {
+  height: 100%;
+  background-color: var(--black);
+  transition: width 0.3s ease-out;
+  border-radius: desktop-vw(2px);
+}
+
+.progressText {
+  font-size: desktop-vw(18px);
+  font-weight: 500;
+  color: var(--black);
+  font-family: var(--font-family);
+}
+
+@include mobile {
+  .content {
+    gap: mobile-vw(20px);
+    max-width: mobile-vw(300px);
+    padding: 0 mobile-vw(30px);
+  }
+
+  .progressBar {
+    height: mobile-vw(4px);
+    border-radius: mobile-vw(2px);
+  }
+
+  .progressFill {
+    border-radius: mobile-vw(2px);
+  }
+
+  .progressText {
+    font-size: mobile-vw(16px);
+  }
+}

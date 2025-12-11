@@ -19,21 +19,40 @@ const nextConfig = {
   reactStrictMode: true,
   experimental: {
     optimizeCss: true,
-    legacyBrowsers: false,
     nextScriptWorkers: true,
   },
   compiler: {
     removeConsole: process.env.NODE_ENV !== 'development',
   },
+  // Otimizações de produção
+  productionBrowserSourceMaps: false, // Desabilita source maps em produção para reduzir tamanho
   images: {
     // ADD in case you need to import SVGs in next/image component
     // dangerouslyAllowSVG: true,
     // contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
-    domains: ['images.ctfassets.net', 'assets.darkroom.engineering'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.ctfassets.net',
+      },
+      {
+        protocol: 'https',
+        hostname: 'assets.darkroom.engineering',
+      },
+    ],
     formats: ['image/avif', 'image/webp'],
   },
   webpack: (config, options) => {
-    const { dir } = options
+    const { dir, dev, isServer } = options
+
+    // Otimizações de produção
+    if (!dev && !isServer) {
+      // Garante minificação de CSS
+      config.optimization = {
+        ...config.optimization,
+        minimize: true,
+      }
+    }
 
     config.module.rules.push(
       {

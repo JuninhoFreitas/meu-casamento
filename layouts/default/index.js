@@ -42,6 +42,7 @@ export function Layout({
       smoothWheel: true,
       // smoothTouch: true,
       syncTouch: true,
+      debug: process.env.NODE_ENV === 'development',
     })
     window.lenis = lenis
     setLenis(lenis)
@@ -52,7 +53,7 @@ export function Layout({
       lenis.destroy()
       setLenis(null)
     }
-  }, [])
+  }, [setLenis])
 
   const [hash, setHash] = useState()
 
