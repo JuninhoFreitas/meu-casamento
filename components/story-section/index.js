@@ -31,7 +31,7 @@ export const StorySection = ({ cardsRectRef }) => {
             </p>
           </Parallax>
         </div>
-        <div className={s.comparison}>
+        <div id="bloco-citacao-biblica" className={s.comparison}>
           <Parallax speed={0.5}>
             <p className="p">{casamento.citacaoBiblica.textoCompleto}</p>
           </Parallax>

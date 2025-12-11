@@ -6,7 +6,7 @@ import s from './footer.module.scss'
 export const Footer = () => {
   return (
     <footer className={cn('theme-light', s.footer)}>
-      <div className={cn(s.top, 'layout-grid hide-on-mobile')}>
+      <div id="bloco-footer-top" className={cn(s.top, 'layout-grid hide-on-mobile')}>
         <p className={cn(s['first-line'], 'h1')}>
           {casamento.noivos.nomeCompleto}
           <br />

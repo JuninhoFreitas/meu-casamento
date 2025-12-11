@@ -59,7 +59,7 @@ export const HeroSection = ({ introOut, hasScrolled, daysLeft }) => {
         <Button
           className={cn(s.cta, s.documentation, introOut && s.in)}
           arrow
-          href={`mailto:${casamento.contato.email}?subject=${encodeURIComponent(casamento.contato.opcoes[0].assunto)}`}
+          href={"https://n8n.unidosnosenhor.com.br/form/9026b542-6112-4594-8e88-229a0402d980"}
         >
           Confirmar Presença
         </Button>

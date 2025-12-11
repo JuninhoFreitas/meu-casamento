@@ -16,10 +16,10 @@ export const WorksSection = ({ whyRectRef }) => {
           <AppearTitle>{casamento.secoes.infos.titulo}</AppearTitle>
         </h2>
         <aside className={s.features} ref={whyRectRef}>
-          <div className={s.feature}>
+          <div className={s.feature} id="bloco-informacoes-do-casamento">
             <p className="p">{casamento.secoes.infos.subtitulo}</p>
           </div>
-          <div className={s.feature}>
+          <div id="bloco-local-da-cerimonia" className={s.feature}>
             <h3 className={cn(s.title, 'h4')}>Local da Cerimônia</h3>
             <p className="p">
               <strong>{casamento.local.cerimonia.nome}</strong>
@@ -30,7 +30,7 @@ export const WorksSection = ({ whyRectRef }) => {
               Horário: {casamento.data.horario.cerimonia}
             </p>
           </div>
-          <div className={s.feature}>
+          <div className={s.feature} id="bloco-hospedagem">
             <h3 className={cn(s.title, 'h4')}>Hospedagem</h3>
             <p className="p">
               {casamento.hospedagem.descricao}
@@ -44,7 +44,7 @@ export const WorksSection = ({ whyRectRef }) => {
               ))}
             </p>
           </div>
-          <div className={s.feature}>
+          <div className={s.feature} id="bloco-presentes">
             <h3 className={cn(s.title, 'h4')}>Presentes</h3>
             <p className="p">
               {casamento.presentes.descricao}
