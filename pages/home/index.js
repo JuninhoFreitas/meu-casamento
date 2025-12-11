@@ -12,12 +12,13 @@ import { useEffect, useRef, useState } from 'react'
 import { useIntersection } from 'react-use'
 import s from './home.module.scss'
 import { Modal } from 'components/modal'
+import { ScrollAlert } from 'components/scroll-alert'
 import { HeroSection } from 'components/hero-section'
 import { WorksSection } from 'components/works-section'
 import { StorySection } from 'components/story-section'
 import { SolutionSection } from 'components/solution-section'
 import { FeaturingSection } from 'components/featuring-section'
-import { ConnectSection } from 'components/connect-section'
+import { GalleryCarousel } from 'components/gallery-carousel'
 
 const FloatingImages = dynamic(
   () => import('components/floating-images').then((mod) => mod.FloatingImages),
@@ -131,6 +132,7 @@ export default function Home() {
     >
       <FloatingImages roadmapRef={zoomRef} />
       <Modal />
+      <ScrollAlert />
 
       <HeroSection
         introOut={introOut}
@@ -149,11 +151,13 @@ export default function Home() {
 
       <FeaturingSection whiteRectRef={whiteRectRef} />
 
-      <ConnectSection
+      <GalleryCarousel />
+
+      {/* <ConnectSection
         inuseRectRef={inuseRectRef}
         inUseRef={inUseRef}
         visible={visible}
-      />
+      /> */}
     </Layout>
   )
 }

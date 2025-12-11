@@ -1,7 +1,13 @@
 import { casamento } from 'content/casamento'
 import cn from 'clsx'
 import { Link } from 'components/link'
+import dynamic from 'next/dynamic'
 import s from './footer.module.scss'
+
+const RotatingRings = dynamic(
+  () => import('components/rotating-rings').then((mod) => mod.RotatingRings),
+  { ssr: false }
+)
 
 export const Footer = () => {
   return (
@@ -12,6 +18,9 @@ export const Footer = () => {
           <br />
           <span className="contrast">Casamento</span>
         </p>
+        <div className={s.ringsDesktop}>
+          <RotatingRings />
+        </div>
         <p className={cn(s['last-line'], 'h3')}>
           {casamento.data.data} <br />
           <span className="hide-on-desktop">&nbsp;</span>
@@ -26,6 +35,9 @@ export const Footer = () => {
           <br /> {casamento.data.data}
           <br /> {casamento.local.cerimonia.cidade} - {casamento.local.cerimonia.estado}
         </p>
+        <div className={s.ringsMobile}>
+          <RotatingRings />
+        </div>
       </div>
       <div className={s.bottom}>
         <div className={s.links}>

@@ -23,7 +23,7 @@ const HorizontalSlides = dynamic(
 export const StorySection = ({ cardsRectRef }) => {
   return (
     <section className={s.rethink} id="story">
-      <div className={cn('layout-grid', s.pre)}>
+      <div style={{ marginBottom: '200px' }} className={cn('layout-grid', s.pre)}>
         <div className={s.highlight} data-lenis-scroll-snap-align="start">
           <Parallax speed={-0.5}>
             <p className="h2">

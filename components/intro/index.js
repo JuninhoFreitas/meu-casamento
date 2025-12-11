@@ -118,7 +118,7 @@ const LNS = ({ isLoaded, className, fill }) => {
             dx="0"
             dy="0"
           >
-            {'J'}
+            {'G'}
           </tspan>
         </text>
       </g>
@@ -164,7 +164,7 @@ const EI = ({ isLoaded, className, fill }) => {
               dx="0"
               dy="0"
             >
-              {'G'}
+              {'J'}
             </tspan>
           </text>
         </g>

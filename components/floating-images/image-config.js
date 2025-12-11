@@ -11,7 +11,8 @@
 // - styles: objeto com propriedades CSS customizadas (opcional)
 //   Exemplo: { marginBottom: '20px', marginTop: '10px', opacity: 0.9 }
 
-export const IMAGE_CONFIG = [
+export const IMAGE_CONFIG = []
+export const IMAGE_CONFIG2 = [
   {
     image: '027afed9-0a74-4c07-8db2-34917a62a387.jpg',
     targetElementId: 'bloco-citacao-biblica',
@@ -43,42 +44,40 @@ export const IMAGE_CONFIG = [
     targetElementId: 'process',
     side: 'right',
   },
-  {
-    image: '542d28ce-4bd0-4913-b04a-28d7c0f32782.jpg',
-    targetElementId: 'bloco-presentes',
-    side: 'right',
-  },
-  {
-    image: '556fbacf-726b-4e8d-9ffb-174cd21fac86.jpg',
-    targetElementId: 'bloco-informacoes-do-casamento',
-    side: 'right',
-  },
+  // {
+  //   image: '542d28ce-4bd0-4913-b04a-28d7c0f32782.jpg',
+  //   targetElementId: 'bloco-presentes',
+  //   side: 'right',
+  // },
+  // {
+  //   image: '556fbacf-726b-4e8d-9ffb-174cd21fac86.jpg',
+  //   targetElementId: 'bloco-informacoes-do-casamento',
+  //   side: 'right',
+  // },
   // {
     // image: '73ce7106-97c2-49ba-9796-08739e9be6eb.jpg',
     // targetElementId: 'hero',
     // side: 'right',
   // },
-  {
-    image: '77e45fde-d5bf-43f4-b8e1-561fc06306c0.jpg',
-    targetElementId: 'bloco-footer-top',
-    side: 'right',
-    styles: {
+  // {
+  //   image: '77e45fde-d5bf-43f4-b8e1-561fc06306c0.jpg',
+  //   targetElementId: 'bloco-footer-top',
+  //   side: 'right',
+  //   styles: {
       // marginBottom: '600px',
       // marginTop: '10px',
       // padding: '10px',
       // Qualquer propriedade CSS em camelCase
-    }
-  },
+    // }
+  // },
   {
     image: 'logounidos.png',
     targetElementId: 'bloco-local-da-cerimonia',
     side: 'right',
     styles: {
-      marginBottom: '600px',
       marginTop: '10px',
-      padding: '10px',
-      marginLeft: '500px'
-      // Qualquer propriedade CSS em camelCase
+      padding: '50px',
+      borderRadius: '100%',
     }
   },
   // {
@@ -131,21 +130,21 @@ export const IMAGE_CONFIG = [
     // targetElementId: 'hero',
     // side: 'right',
   // },
-  {
-    image: 'cdec994e-2db2-4a26-a299-8df8fac8aca0.jpg',
-    targetElementId: 'bloco-hospedagem',
-    side: 'right',
-  },
+  // {
+  //   image: 'cdec994e-2db2-4a26-a299-8df8fac8aca0.jpg',
+  //   targetElementId: 'bloco-hospedagem',
+  //   side: 'right',
+  // },
   // {
     // image: 'daf798e9-1183-496f-9401-37d4f946289e.jpg',
     // targetElementId: 'hero',
     // side: 'right',
   // },
-  {
-    image: 'e48aec88-dbb6-43ae-a0b8-e6ea5c44230b.jpg',
-    targetElementId: 'bloco-opcoes-de-contato',
-    side: 'left',
-  },
+  // {
+  //   image: 'e48aec88-dbb6-43ae-a0b8-e6ea5c44230b.jpg',
+  //   targetElementId: 'bloco-opcoes-de-contato',
+  //   side: 'left',
+  // },
   // {
     // image: 'e601ed95-4948-406c-9b18-f0c3400a35a6.jpg',
     // targetElementId: 'hero',

@@ -2,7 +2,7 @@
 
 .wrapper {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-direction: column;
   color: var(--theme-secondary);
   border: 1px solid;
@@ -28,10 +28,13 @@
     // font-weight: 900;
     line-height: 90%;
     // letter-spacing: -0.02em;
-    font-size: mobile-vw(56px);
+    font-size: mobile-vw(48px);
+    margin-bottom: mobile-vw(12px);
+    flex-shrink: 0;
 
     @include desktop {
-      font-size: desktop-vw(96px);
+      font-size: desktop-vw(80px);
+      margin-bottom: desktop-vw(16px);
     }
   }
 
@@ -40,22 +43,26 @@
     font-weight: 700;
     text-transform: uppercase;
     // font-stretch: expanded;
-    line-height: 120%;
+    line-height: 110%;
     // letter-spacing: -0.01em;
-    font-size: mobile-vw(16px);
+    font-size: mobile-vw(14px);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 
     @include desktop {
-      font-size: desktop-vw(20px);
+      font-size: desktop-vw(18px);
     }
 
     p {
       text-transform: none;
       font-weight: 400;
-      line-height: 140%;
-      font-size: mobile-vw(14px);
+      line-height: 130%;
+      font-size: mobile-vw(13px);
 
       @include desktop {
-        font-size: desktop-vw(16px);
+        font-size: desktop-vw(14px);
       }
 
       strong {

@@ -2,8 +2,8 @@ export const casamento = {
   noivos: {
     noivo: 'João',
     noiva: 'Gabrielle',
-    nomeCompleto: 'Gabrielle & João',
-    iniciais: 'G&J',
+    nomeCompleto: 'João & Gabrielle',
+    iniciais: 'J&G',
   },
   data: {
     data: '07/03/2026',
@@ -27,12 +27,12 @@ export const casamento = {
   hospedagem: {
     descricao: 'Vamos disponibilizar um guia para hospedagens',
     preco: 'R$?/noite',
-    tags: ['Acomodação', 'Perto do local', 'Reservas até 10/09'],
+    tags: ['Na casa de Familiares e Amigos = Gratuito', 'Hoteis/Airbnb = Por sua conta'],
     prazoReserva: '10/09',
   },
   presentes: {
     descricao:
-      'Neste momento, o melhor presente que alguém pode nos dar é contribuir via PIX para a chave "brizollajr@gmail.com". Em breve, enviaremos a lista de presentes e endereços de envio (para aqueles que vêm de longe).',
+      'Neste momento, o melhor presente que alguém pode nos dar é contribuir via PIX para a chave: "brizollajr@gmail.com". Em breve, enviaremos a lista de presentes e endereços de envio (para aqueles que vêm de longe).',
     tipoPreferido: 'Monetário preferido',
     tags: ['Presentes', 'PIX disponível', 'Contato direto'],
     observacao: '',
@@ -159,19 +159,12 @@ export const casamento = {
     opcoes: [
       {
         tipo: 'Confirmação de Presença',
-        assunto: 'Confirmação de Presença - Casamento Gabrielle & João',
-        email: 'brizollajr@gmail.com',
-      },
-      {
-        tipo: 'Lista de Presentes',
-        descricao:
-          'Neste momento, o melhor presente que alguém pode nos dar é contribuir via PIX para a chave "brizollajr@gmail.com". Em breve, enviaremos a lista de presentes e endereços de envio (para aqueles que vêm de longe).',
-        assunto: 'Lista de Presentes - Casamento Gabrielle & João',
-        email: 'brizollajr@gmail.com',
+        assunto: 'Confirmação de Presença - Casamento João & Gabrielle',
+        email: 'http://localhost:3000/confirmar-presenca',
       },
       {
         tipo: 'Mural de Recados',
-        assunto: 'Mural de Recados - Casamento Gabrielle & João',
+        assunto: 'Mural de Recados - Casamento João & Gabrielle',
         email: 'brizollajr@gmail.com',
       },
     ],
@@ -187,7 +180,7 @@ export const casamento = {
   },
   secoes: {
     hero: {
-      titulo: 'Gabrielle & João',
+      titulo: 'João & Gabrielle',
       subtitulo:
         '7 de Março de 2026 — 9h00 Faltam {daysLeft} dias para o nosso grande dia!',
       observacao:

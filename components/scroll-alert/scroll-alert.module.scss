@@ -1,0 +1,123 @@
+@import 'styles/_functions';
+
+.alert {
+  position: fixed !important;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s var(--ease-out-expo);
+
+  &.visible {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: var(--black);
+    opacity: 0.7;
+    backdrop-filter: blur(8px);
+    z-index: 0;
+  }
+
+  .content {
+    position: absolute;
+    z-index: 1;
+    background-color: var(--white);
+    color: var(--black);
+    padding: mobile-vw(32px);
+    border-radius: mobile-vw(16px);
+    border: mobile-vw(2px) solid var(--pink);
+    text-align: center;
+    max-width: mobile-vw(320px);
+    box-shadow: 0 mobile-vw(20px) mobile-vw(40px) rgba(0, 0, 0, 0.3);
+    transform: scale(0.9);
+    transition: transform 0.5s var(--ease-out-expo);
+
+    @include desktop {
+      padding: desktop-vw(40px);
+      border-radius: desktop-vw(20px);
+      border-width: desktop-vw(3px);
+      max-width: desktop-vw(500px);
+      box-shadow: 0 desktop-vw(30px) desktop-vw(60px) rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  &.visible .content {
+    transform: scale(1);
+  }
+
+    .icon {
+      font-size: mobile-vw(48px);
+      margin-bottom: mobile-vw(16px);
+      animation: bounce 2s ease-in-out infinite;
+
+      @include desktop {
+        font-size: desktop-vw(64px);
+        margin-bottom: desktop-vw(24px);
+      }
+    }
+
+    .message {
+      font-family: var(--font-anton);
+      font-size: mobile-vw(16px);
+      line-height: 1.5;
+      margin-bottom: mobile-vw(24px);
+      color: var(--black);
+
+      @include desktop {
+        font-size: desktop-vw(20px);
+        margin-bottom: desktop-vw(32px);
+      }
+
+      strong {
+        color: var(--pink);
+        font-weight: 700;
+      }
+    }
+
+    .closeButton {
+      background-color: var(--pink);
+      color: var(--white);
+      border: none;
+      padding: mobile-vw(12px) mobile-vw(32px);
+      border-radius: mobile-vw(8px);
+      font-family: var(--font-anton);
+      font-size: mobile-vw(14px);
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background-color 0.3s var(--ease-in-out-quad),
+        transform 0.2s var(--ease-in-out-quad);
+
+      @include desktop {
+        padding: desktop-vw(16px) desktop-vw(40px);
+        border-radius: desktop-vw(10px);
+        font-size: desktop-vw(16px);
+      }
+
+      &:hover {
+        background-color: var(--salvia);
+        transform: scale(1.05);
+      }
+
+      &:active {
+        transform: scale(0.95);
+      }
+    }
+  }
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}

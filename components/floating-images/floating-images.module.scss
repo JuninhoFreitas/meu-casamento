@@ -10,9 +10,9 @@
   z-index: 1;
   overflow: hidden;
 
-  // Em mobile: permite overflow para mostrar 10% da largura da viewport das imagens
+  // Em mobile: oculta completamente as floating images
   @include mobile {
-    overflow: visible;
+    display: none;
   }
 }
 

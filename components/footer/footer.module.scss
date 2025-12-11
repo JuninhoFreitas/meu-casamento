@@ -41,6 +41,23 @@
       }
     }
 
+    .ringsDesktop {
+      position: absolute;
+      right: desktop-vw(60px);
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      @include desktop {
+        grid-column: 9 / -1;
+        justify-self: end;
+      }
+    }
+  }
+
     .shameless-plug {
       align-self: start;
       display: flex;
@@ -73,6 +90,17 @@
       align-self: end;
       grid-column: 2 / -1;
     }
+  }
+
+  .ringsMobile {
+    position: absolute;
+    right: mobile-vw(20px);
+    top: 30%;
+    transform: translateY(-50%);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .bottom {
@@ -123,4 +151,3 @@
       margin-top: mobile-vw(24px);
     }
   }
-}

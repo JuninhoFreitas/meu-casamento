@@ -62,5 +62,148 @@
       }
     }
   }
+
+  .presentesContent {
+    .intro {
+      margin-bottom: mobile-vw(32px);
+      line-height: 1.6;
+
+      @include desktop {
+        margin-bottom: desktop-vw(40px);
+      }
+    }
+
+    .paymentCategory {
+      margin-bottom: mobile-vw(32px);
+      padding: mobile-vw(20px) 0;
+      border-top: 1px solid var(--grey);
+      opacity: 1;
+
+      @include desktop {
+        margin-bottom: desktop-vw(40px);
+        padding: desktop-vw(24px) 0;
+      }
+
+      &:first-of-type {
+        border-top: none;
+        padding-top: 0;
+      }
+
+      .categoryTitle {
+        font-family: var(--font-anton);
+        font-size: mobile-vw(18px);
+        color: var(--theme-contrast);
+        margin-bottom: mobile-vw(16px);
+        display: flex;
+        align-items: center;
+        gap: mobile-vw(8px);
+
+        @include desktop {
+          font-size: desktop-vw(20px);
+          margin-bottom: desktop-vw(20px);
+          gap: desktop-vw(12px);
+        }
+
+        .emoji {
+          font-size: mobile-vw(20px);
+
+          @include desktop {
+            font-size: desktop-vw(24px);
+          }
+        }
+      }
+
+      .paymentItem {
+        display: flex;
+        flex-direction: column;
+        gap: mobile-vw(4px);
+        margin-bottom: mobile-vw(12px);
+
+        @include desktop {
+          flex-direction: row;
+          align-items: baseline;
+          gap: desktop-vw(12px);
+          margin-bottom: desktop-vw(16px);
+        }
+
+        .paymentLabel {
+          font-weight: 600;
+          color: var(--theme-secondary);
+          opacity: 0.9;
+          min-width: fit-content;
+
+          @include desktop {
+            min-width: desktop-vw(200px);
+          }
+        }
+
+        .paymentValue {
+          color: #000000;
+          font-family: 'Courier New', monospace;
+          word-break: break-all;
+          font-size: mobile-vw(14px);
+
+          @include desktop {
+            font-size: desktop-vw(15px);
+          }
+        }
+
+        .paymentLink {
+          color: var(--pink);
+          text-decoration: none;
+          transition: color 0.3s var(--ease-in-out-quad);
+          font-weight: 500;
+          position: relative;
+
+          &::after {
+            content: ' ↗';
+            font-size: 0.9em;
+            opacity: 0.7;
+          }
+
+          &:hover {
+            color: var(--salvia);
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
+    .helpMessage {
+      margin-top: mobile-vw(40px);
+      padding: mobile-vw(20px);
+      padding-left: mobile-vw(24px);
+      border-left: mobile-vw(3px) solid var(--pink);
+      display: flex;
+      gap: mobile-vw(12px);
+      align-items: flex-start;
+
+      @include desktop {
+        margin-top: desktop-vw(48px);
+        padding: desktop-vw(24px);
+        padding-left: desktop-vw(32px);
+        border-left-width: desktop-vw(4px);
+        gap: desktop-vw(16px);
+      }
+
+      .emoji {
+        font-size: mobile-vw(24px);
+        flex-shrink: 0;
+
+        @include desktop {
+          font-size: desktop-vw(28px);
+        }
+      }
+
+      p {
+        margin: 0;
+        line-height: 1.6;
+
+        strong {
+          color: var(--theme-contrast);
+        }
+      }
+    }
+  }
 }
 

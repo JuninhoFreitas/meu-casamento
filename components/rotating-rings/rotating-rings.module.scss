@@ -1,0 +1,23 @@
+@import 'styles/_functions';
+
+.container {
+  position: relative;
+  width: mobile-vw(120px);
+  height: mobile-vw(120px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  overflow: visible;
+
+  @include desktop {
+    width: desktop-vw(180px);
+    height: desktop-vw(180px);
+  }
+
+  canvas {
+    width: 100% !important;
+    height: 100% !important;
+    display: block;
+  }
+}

@@ -29,7 +29,7 @@ export const ConnectSection = ({ inuseRectRef, inUseRef, visible }) => {
             </AppearTitle>
           </p>
         </aside>
-        <div id="bloco-opcoes-de-contato" className={s.list}>
+        {/* <div id="bloco-opcoes-de-contato" className={s.list}>
           {casamento.contato.opcoes.map((opcao, i) => (
             <div key={i} style={{ marginBottom: '2rem' }}>
               <h4 className="h4">{opcao.tipo}</h4>
@@ -53,7 +53,7 @@ export const ConnectSection = ({ inuseRectRef, inUseRef, visible }) => {
               {obs}
             </p>
           ))}
-        </div>
+        </div> */}
       </div>
     </section>
   )
