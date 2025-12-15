@@ -117,7 +117,14 @@ export const WorksSection = ({ whyRectRef }) => {
                 </h4>
                 <div className={s.paymentItem}>
                   <span className={s.paymentLabel}>Boleto Bancário:</span>
-                  <span className={s.paymentValue}>Solicitar via WhatsApp</span>
+                  <a
+                    href="https://wa.me/5551999354299"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={s.paymentLink}
+                  >
+                    Solicitar via WhatsApp
+                  </a>
                 </div>
               </div>
 

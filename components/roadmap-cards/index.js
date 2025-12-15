@@ -50,7 +50,7 @@ export const RoadmapCards = ({ etapas, titulo, subtitulo }) => {
         <aside className={s.title}>
           <p className="h3">
             <AppearTitle>
-              {titulo || 'Roadmap da'}
+              {titulo || 'Cronograma da'}
               <br />
               <span className="grey">{subtitulo || 'Nossa Celebração'}</span>
             </AppearTitle>

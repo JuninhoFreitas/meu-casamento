@@ -119,7 +119,7 @@ export const casamento = {
     ],
   },
   roadmap: {
-    titulo: 'Roadmap da Nossa Celebração',
+    titulo: 'Cronograma da Nossa Celebração',
     subtitulo: 'Sua missão, caso decida aceitar, é celebrar com a gente!',
     etapas: [
       {
@@ -144,7 +144,7 @@ export const casamento = {
         numero: '04',
         titulo: 'A Comemoração',
         descricao:
-          'Lançamento oficial da nossa nova vida! Após a cerimônia, queremos todos juntos para um almoço delicioso, onde poderemos conversar, rir e criar as primeiras memórias de um dia inesquecível. A sua presença é o nosso maior presente.',
+          'Lançamento oficial da nossa nova vida! Após a cerimônia, queremos todos juntos para um café colonial, onde poderemos conversar, rir e criar as primeiras memórias de um dia inesquecível. A sua presença é o nosso maior presente.',
       },
       {
         numero: '05',
@@ -174,7 +174,7 @@ export const casamento = {
   informacoesAdicionais: {
     observacoes: [
       'Novas informações estão chegando, lentamente mas certamente 😅',
-      'Após a cerimônia haverá um almoço delicioso',
+      'Após a cerimônia haverá um café colonial',
       'É possível utilizar o suporte dos Padrinhos para entrega de presentes',
     ],
   },
@@ -196,7 +196,7 @@ casamento`,
       titulo: 'Nossa história de amor',
     },
     roadmapSectionInfo: {
-      titulo: 'Roadmap da Nossa Celebração',
+      titulo: 'Cronograma da Nossa Celebração',
       subtitulo: 'Sua missão, caso decida aceitar, é celebrar com a gente! =)',
     },
     connectSectionInfo: {
@@ -220,7 +220,7 @@ casamento`,
         },
         {
           id: 'process',
-          label: 'Roadmap',
+          label: 'CRONOGRAMA',
         },
         {
           id: 'connect',
