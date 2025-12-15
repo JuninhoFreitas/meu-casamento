@@ -52,7 +52,7 @@ export const Footer = () => {
           ))}
           <Link
             className={cn(s.link, 'p-xs')}
-            href={`mailto:${casamento.contato.email}`}
+            href="https://wa.me/5551999354299"
           >
             Contato
           </Link>
