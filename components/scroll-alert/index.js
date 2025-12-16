@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useStore } from 'lib/store'
 import cn from 'clsx'
 import s from './scroll-alert.module.scss'
+import { RotatingRings } from '../rotating-rings'
 
 export function ScrollAlert() {
   const [isVisible, setIsVisible] = useState(false)
@@ -68,7 +69,9 @@ export function ScrollAlert() {
   return (
     <div className={cn(s.alert, isVisible && s.visible)}>
       <div className={s.content}>
-        <div className={s.icon}>💍</div>
+        <div className={s.icon} style={{ width: '100%', height: '100%', left: 'auto', right: 'auto', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <RotatingRings />
+        </div>
         <p className={s.message}>
           Continue deslizando a tela para baixo até encontrar uma{' '}
           <strong>aliança girando</strong> 💫
