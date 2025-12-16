@@ -1,7 +1,7 @@
 import { useMediaQuery } from '@darkroom.engineering/hamo'
 import cn from 'clsx'
 import { useStore } from 'lib/store'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import s from './intro.module.scss'
 
 export const Intro = () => {
@@ -11,12 +11,38 @@ export const Intro = () => {
   const introOut = useStore(({ introOut }) => introOut)
   const setIntroOut = useStore(({ setIntroOut }) => setIntroOut)
   const lenis = useStore(({ lenis }) => lenis)
+  const hasCompletedRef = useRef(false)
 
   useEffect(() => {
-    setTimeout(() => {
-      setIsLoaded(true)
+    // Skip timeout logic on mobile (intro is already skipped)
+    if (isMobile) {
+      return
+    }
+
+    const timeoutId = setTimeout(() => {
+      if (!hasCompletedRef.current) {
+        setIsLoaded(true)
+      }
     }, 1000)
-  }, [])
+
+    // Safety timeout: skip loading if it takes more than 5 seconds
+    const maxTimeoutId = setTimeout(() => {
+      if (!hasCompletedRef.current) {
+        hasCompletedRef.current = true
+        setIsLoaded(true)
+        // Force scroll to start immediately after a short delay
+        setTimeout(() => {
+          setScroll(true)
+          setIntroOut(true)
+        }, 100)
+      }
+    }, 5000)
+
+    return () => {
+      clearTimeout(timeoutId)
+      clearTimeout(maxTimeoutId)
+    }
+  }, [isMobile, setIntroOut])
 
   useEffect(() => {
     if (isMobile) {
@@ -46,14 +72,15 @@ export const Intro = () => {
     <div
       className={cn(s.wrapper, isLoaded && s.out)}
       onTransitionEnd={(e) => {
-        e.target.classList.forEach((value) => {
+        for (const value of e.target.classList) {
           if (value.includes('out')) {
+            hasCompletedRef.current = true
             setScroll(true)
           }
           if (value.includes('show')) {
             setIntroOut(true)
           }
-        })
+        }
       }}
     >
       <div className={cn(isLoaded && s.relative)}>
