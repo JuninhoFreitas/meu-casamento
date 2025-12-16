@@ -72,7 +72,7 @@ export const IMAGE_CONFIG2 = [
   // },
   {
     image: 'logounidos.png',
-    targetElementId: 'bloco-local-da-cerimonia',
+    targetElementId: 'local',
     side: 'right',
     styles: {
       marginTop: '10px',

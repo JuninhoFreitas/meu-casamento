@@ -19,7 +19,7 @@ export const WorksSection = ({ whyRectRef }) => {
           <div className={s.feature} id="bloco-informacoes-do-casamento">
             <p className="p">{casamento.secoes.infos.subtitulo}</p>
           </div>
-          <div id="bloco-local-da-cerimonia" className={s.feature}>
+          <div id="local" className={s.feature}>
             <h3 className={cn(s.title, 'h4')}>Local da Cerimônia</h3>
             <p className="p">
               <strong>{casamento.local.cerimonia.nome}</strong>
@@ -44,7 +44,7 @@ export const WorksSection = ({ whyRectRef }) => {
               ))}
             </p>
           </div>
-          <div className={s.feature} id="bloco-presentes">
+          <div className={s.feature} id="presentes">
             <h3 className={cn(s.title, 'h4')}>Presentes</h3>
             <div className={s.presentesContent}>
               {/* <p className={s.intro}>

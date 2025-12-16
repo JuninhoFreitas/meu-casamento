@@ -61,7 +61,12 @@ export function Layout({
     if (lenis && hash) {
       // scroll to on hash change
       const target = document.querySelector(hash)
-      lenis.scrollTo(target, { offset: 0 })
+      if (target) {
+        // Wait a bit for the page to fully render
+        setTimeout(() => {
+          lenis.scrollTo(target, { offset: 0 })
+        }, 100)
+      }
     }
   }, [lenis, hash])
 
@@ -72,6 +77,20 @@ export function Layout({
       setHash('#' + hash)
     }
   }, [router])
+
+  useEffect(() => {
+    // Handle initial page load with hash
+    if (typeof window !== 'undefined' && window.location.hash && lenis) {
+      const hash = window.location.hash
+      const target = document.querySelector(hash)
+      if (target) {
+        // Wait for page to fully render before scrolling
+        setTimeout(() => {
+          lenis.scrollTo(target, { offset: 0 })
+        }, 500)
+      }
+    }
+  }, [lenis])
 
   useEffect(() => {
     // catch anchor links clicks
