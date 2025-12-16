@@ -1,11 +1,8 @@
 # Stage 1: Dependencies
-FROM node:20-slim AS deps
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    libc6-dev \
-    && rm -rf /var/lib/apt/lists/*
-
-# Install pnpm
-RUN corepack enable && corepack prepare pnpm@latest --activate
+FROM node:20-alpine AS deps
+# Install pnpm and build dependencies for native modules
+RUN corepack enable && corepack prepare pnpm@latest --activate && \
+    apk add --no-cache libc6-compat
 
 WORKDIR /app
 
@@ -17,13 +14,10 @@ COPY .npmrc* ./
 RUN pnpm install --frozen-lockfile --prod=false
 
 # Stage 2: Builder
-FROM node:20-slim AS builder
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    libc6-dev \
-    && rm -rf /var/lib/apt/lists/*
-
-# Install pnpm
-RUN corepack enable && corepack prepare pnpm@latest --activate
+FROM node:20-alpine AS builder
+# Install pnpm and build dependencies for native modules (sharp, etc.)
+RUN corepack enable && corepack prepare pnpm@latest --activate && \
+    apk add --no-cache libc6-compat python3 make g++
 
 WORKDIR /app
 
@@ -40,19 +34,19 @@ ENV NEXT_TELEMETRY_DISABLED=1
 RUN pnpm build
 
 # Stage 3: Runner
-FROM node:20-slim AS runner
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    libc6-dev \
-    && rm -rf /var/lib/apt/lists/*
+FROM node:20-alpine AS runner
 
 WORKDIR /app
 
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
 
+# Install runtime dependencies
+RUN apk add --no-cache libc6-compat ca-certificates
+
 # Create non-root user for security
-RUN addgroup --system --gid 1001 nodejs
-RUN adduser --system --uid 1001 nextjs
+RUN addgroup -g 1001 -S nodejs && \
+    adduser -S nextjs -u 1001
 
 # Copy public assets
 COPY --from=builder --chown=nextjs:nodejs /app/public ./public

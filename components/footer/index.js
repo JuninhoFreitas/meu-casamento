@@ -57,8 +57,7 @@ export const Footer = () => {
             Contato
           </Link>
         </div>
-        <p className={cn('p-xs', s.tm)}>
-          <span>©</span> {casamento.metadata.site.copyright}
+        <p className={cn('p-xs', s.tm)}> {casamento.metadata.site.copyright}
         </p>
       </div>
     </footer>

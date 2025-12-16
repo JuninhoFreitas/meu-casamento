@@ -22,13 +22,13 @@ export function ScrollAlert() {
 
   useEffect(() => {
     // Verifica se já foi fechado antes
-    if (typeof window !== 'undefined') {
-      const dismissed = localStorage.getItem('scroll-alert-dismissed')
-      if (dismissed === 'true') {
-        setIsDismissed(true)
-        return
-      }
-    }
+    // if (typeof window !== 'undefined') {
+    //   const dismissed = localStorage.getItem('scroll-alert-dismissed')
+    //   if (dismissed === 'true') {
+    //     setIsDismissed(true)
+    //     return
+    //   }
+    // }
 
     // No mobile, mostra após um delay maior (intro é pulada)
     // No desktop, mostra quando a intro terminar
@@ -58,7 +58,7 @@ export function ScrollAlert() {
     }
     // Salva no localStorage para não mostrar novamente
     if (typeof window !== 'undefined') {
-      localStorage.setItem('scroll-alert-dismissed', 'true')
+      // localStorage.setItem('scroll-alert-dismissed', 'true')
     }
   }
 

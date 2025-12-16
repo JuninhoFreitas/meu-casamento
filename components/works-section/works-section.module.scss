@@ -111,6 +111,20 @@
             font-size: desktop-vw(24px);
           }
         }
+
+        .shopeeIcon {
+          width: mobile-vw(20px);
+          height: mobile-vw(20px);
+          display: inline-block;
+          vertical-align: middle;
+          flex-shrink: 0;
+          object-fit: contain;
+
+          @include desktop {
+            width: desktop-vw(24px);
+            height: desktop-vw(24px);
+          }
+        }
       }
 
       .paymentItem {
@@ -165,6 +179,26 @@
             color: var(--salvia);
             text-decoration: underline;
           }
+        }
+      }
+
+      .shopeeInfo {
+        margin-top: mobile-vw(12px);
+        margin-bottom: mobile-vw(16px);
+        line-height: 1.6;
+        color: var(--theme-secondary);
+        opacity: 1;
+        font-size: mobile-vw(14px);
+
+        @include desktop {
+          margin-top: desktop-vw(16px);
+          margin-bottom: desktop-vw(20px);
+          font-size: desktop-vw(15px);
+        }
+
+        strong {
+          color: green;
+          font-weight: 600;
         }
       }
     }

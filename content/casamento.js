@@ -208,7 +208,7 @@ casamento`,
   metadata: {
     site: {
       copyright:
-        '© 2025 Gabrielle e João. Celebrando nosso amor com muito carinho e gratidão.',
+        '© 2025 João e Gabrielle. Celebrando nosso amor com muito carinho e gratidão.',
       navegacao: [
         {
           id: 'works',
@@ -221,10 +221,6 @@ casamento`,
         {
           id: 'process',
           label: 'CRONOGRAMA',
-        },
-        {
-          id: 'connect',
-          label: 'Contato',
         },
       ],
     },

@@ -71,7 +71,7 @@ function RingsScene() {
       <directionalLight position={[-5, -5, -5]} intensity={0.6} />
       <pointLight position={[0, 5, 5]} intensity={0.8} color="#FFD700" />
       <pointLight position={[0, -5, -5]} intensity={0.4} color="#FFA500" />
-      <Float floatIntensity={0.4} rotationIntensity={0.2} speed={1.5}>
+      <Float floatIntensity={0.4} rotationIntensity={0.7} speed={2.5}>
         <Suspense fallback={null}>
           <RingsModel />
         </Suspense>
