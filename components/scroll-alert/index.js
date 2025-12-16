@@ -31,6 +31,23 @@ export function ScrollAlert() {
     //   }
     // }
 
+    // Check for hash in URL - if present, don't show alert and ensure lenis is started
+    const checkHash = () => {
+      return typeof window !== 'undefined' && window.location.hash
+    }
+
+    const hasHash = checkHash()
+    
+    // If there's a hash, ensure lenis is started and don't show alert
+    if (hasHash) {
+      if (lenis) {
+        lenis.start()
+      }
+      setIsVisible(false)
+      setIsDismissed(true)
+      return
+    }
+
     // No mobile, mostra após um delay maior (intro é pulada)
     // No desktop, mostra quando a intro terminar
     const shouldShow = isMobile ? true : introOut
@@ -39,9 +56,12 @@ export function ScrollAlert() {
       // Delay maior no mobile para garantir que a página carregou
       const delay = isMobile ? 2000 : 500
       const showTimer = setTimeout(() => {
-        setIsVisible(true)
-        if (lenis) {
-          lenis.stop()
+        // Double check hash hasn't appeared during delay
+        if (!checkHash()) {
+          setIsVisible(true)
+          if (lenis) {
+            lenis.stop()
+          }
         }
       }, delay)
 
@@ -50,6 +70,27 @@ export function ScrollAlert() {
       }
     }
   }, [introOut, lenis, isMobile])
+
+  // Monitor hash changes and auto-dismiss alert if hash appears
+  useEffect(() => {
+    const handleHashChange = () => {
+      if (typeof window !== 'undefined' && window.location.hash) {
+        setIsVisible(false)
+        setIsDismissed(true)
+        if (lenis) {
+          lenis.start()
+        }
+      }
+    }
+
+    // Check on mount and listen for hash changes
+    handleHashChange()
+    window.addEventListener('hashchange', handleHashChange)
+    
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange)
+    }
+  }, [lenis])
 
   const handleDismiss = () => {
     setIsDismissed(true)
@@ -76,7 +117,7 @@ export function ScrollAlert() {
           Continue deslizando a tela para baixo até encontrar uma{' '}
           <strong>aliança girando</strong> 💫
         </p>
-        <button className={s.closeButton} onClick={handleDismiss}>
+        <button type="button" className={s.closeButton} onClick={handleDismiss}>
           Entendi!
         </button>
       </div>

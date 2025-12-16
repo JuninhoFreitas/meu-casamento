@@ -27,7 +27,10 @@ const FloatingImages = dynamic(
 
 if (typeof window !== 'undefined') {
   window.history.scrollRestoration = 'manual'
-  window.scrollTo(0, 0)
+  // Only reset scroll if there's no hash in the URL
+  if (!window.location.hash) {
+    window.scrollTo(0, 0)
+  }
 }
 
 export default function Home() {
