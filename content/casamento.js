@@ -9,9 +9,9 @@ export const casamento = {
     data: '07/03/2026',
     dataISO: '2026-03-07',
     horario: {
-      cerimonia: '15:00',
+      cerimonia: '09:00',
       observacao:
-        'Mencionado também 9h00 no Hero, mas 15:00 é o horário principal da cerimônia',
+        'Mencionado também 9h00 no Hero, mas 09:00 é o horário principal da cerimônia',
     },
   },
   local: {
@@ -184,7 +184,7 @@ export const casamento = {
       subtitulo:
         '7 de Março de 2026 — 9h00 Faltam {daysLeft} dias para o nosso grande dia!',
       observacao:
-        'Nota: Há uma discrepância entre o horário mencionado no Hero (9h00) e no Works (15:00). O horário de 15:00 parece ser o correto para a cerimônia.',
+        'Nota: Há uma discrepância entre o horário mencionado no Hero (9h00) e no Works (09:00). O horário de 09:00 parece ser o correto para a cerimônia.',
     },
     infos: {
       titulo: `Informações
