@@ -12,6 +12,8 @@
   justify-content: center;
   z-index: 1000;
   padding: mobile-vw(20px);
+  // Prevent Lenis from interfering
+  overscroll-behavior: contain;
 
   @include desktop {
     padding: desktop-vw(40px);
@@ -25,8 +27,13 @@
   width: 100%;
   max-height: 90vh;
   overflow-y: auto;
+  overflow-x: hidden;
   position: relative;
   box-shadow: 0 mobile-vw(20px) mobile-vw(60px) rgba(0, 0, 0, 0.3);
+  // Ensure native scroll works
+  -webkit-overflow-scrolling: touch;
+  // Prevent Lenis from interfering
+  overscroll-behavior: contain;
 
   @include desktop {
     max-width: desktop-vw(800px);
@@ -132,8 +139,52 @@
 
 .brickContainer {
   min-height: mobile-vw(400px);
+  width: 100%;
 
   @include desktop {
     min-height: desktop-vw(500px);
+  }
+
+  // Regras específicas para o container do Mercado Pago Brick
+  #paymentBrick_container {
+    width: 100%;
+    min-height: mobile-vw(400px);
+    position: relative;
+
+    @include desktop {
+      min-height: desktop-vw(500px);
+    }
+  }
+
+  // Garantir que elementos internos do brick permitam scroll
+  :global {
+    // Container principal do brick
+    [id*='paymentBrick'],
+    [id*='paymentBrick_container'] {
+      width: 100% !important;
+      height: auto !important;
+      min-height: mobile-vw(400px) !important;
+      overflow: visible !important;
+
+      @include desktop {
+        min-height: desktop-vw(500px) !important;
+      }
+    }
+
+    // Elementos de formulário dentro do brick
+    [id*='paymentBrick'] form,
+    [id*='paymentBrick'] .mp-form,
+    [id*='paymentBrick'] .mp-form-container {
+      width: 100% !important;
+      overflow: visible !important;
+    }
+
+    // Inputs e campos do formulário
+    [id*='paymentBrick'] input,
+    [id*='paymentBrick'] select,
+    [id*='paymentBrick'] textarea {
+      width: 100% !important;
+      max-width: 100% !important;
+    }
   }
 }

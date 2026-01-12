@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, useCallback } from 'react'
 import cn from 'clsx'
 import { StatusScreenBrick } from 'components/status-screen-brick'
+import { useStore } from 'lib/store'
 import s from './checkout-modal.module.scss'
 
 const MERCADOPAGO_PUBLIC_KEY = process.env.NEXT_PUBLIC_MERCADOPAGO_PUBLIC_KEY || 'x'
@@ -64,6 +65,7 @@ export function CheckoutModal({ isOpen, onClose, product }) {
   const [showStatusScreen, setShowStatusScreen] = useState(false)
   const brickControllerRef = useRef(null)
   const containerRef = useRef(null)
+  const lenis = useStore(({ lenis }) => lenis)
 
   const createPreference = useCallback(async () => {
     try {
@@ -228,6 +230,26 @@ export function CheckoutModal({ isOpen, onClose, product }) {
     }
   }, [product, createPreference])
 
+  // Control Lenis when modal is open
+  useEffect(() => {
+    if (!lenis) return
+
+    if (isOpen) {
+      // Stop Lenis to prevent interference with modal scroll
+      lenis.stop()
+    } else {
+      // Restart Lenis when modal closes
+      lenis.start()
+    }
+
+    return () => {
+      // Ensure Lenis is started when component unmounts
+      if (lenis && !isOpen) {
+        lenis.start()
+      }
+    }
+  }, [isOpen, lenis])
+
   useEffect(() => {
     if (!isOpen || !product) {
       // Cleanup when closing
@@ -273,8 +295,8 @@ export function CheckoutModal({ isOpen, onClose, product }) {
   if (!isOpen) return null
 
   return (
-    <div className={s.overlay} onClick={onClose}>
-      <div className={s.modal} onClick={(e) => e.stopPropagation()}>
+    <div className={s.overlay} onClick={onClose} data-lenis-prevent>
+      <div className={s.modal} onClick={(e) => e.stopPropagation()} data-lenis-prevent>
         <button className={s.closeButton} onClick={onClose} aria-label="Fechar">
           ×
         </button>
