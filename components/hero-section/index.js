@@ -64,7 +64,14 @@ export const HeroSection = ({ introOut, hasScrolled, daysLeft }) => {
           Confirmar Presença
         </Button>
         <Button
-          className={cn(s.cta, s.sponsor, introOut && s.in)}
+          className={cn(s.cta, s.presentes, introOut && s.in)}
+          arrow
+          href="https://collshp.com/joaoegabrielle?view=storefront"
+        >
+          Ver lista de presentes
+        </Button>
+        <Button
+          className={cn(s.cta, s.info, introOut && s.in)}
           arrow
           href={`#${casamento.metadata.site.navegacao[0].id}`}
         >

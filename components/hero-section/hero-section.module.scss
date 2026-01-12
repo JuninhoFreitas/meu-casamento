@@ -157,7 +157,19 @@
 
       &.documentation {
         @include desktop {
-          grid-column: 7 / 10;
+          grid-column: 7 / 9;
+        }
+      }
+
+      &.presentes {
+        @include desktop {
+          grid-column: 9 / 11;
+        }
+      }
+
+      &.info {
+        @include desktop {
+          grid-column: 11 / -1;
         }
       }
 

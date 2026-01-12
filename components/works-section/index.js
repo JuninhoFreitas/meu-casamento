@@ -1,6 +1,7 @@
 import cn from 'clsx'
 import dynamic from 'next/dynamic'
 import { casamento } from 'content/casamento'
+import { Button } from 'components/button'
 import s from './works-section.module.scss'
 
 const AppearTitle = dynamic(
@@ -12,7 +13,7 @@ export const WorksSection = ({ whyRectRef }) => {
   return (
     <section className={s.why} id="works" data-lenis-scroll-snap-align="start">
       <div className="layout-grid">
-        <h2 className={cn(s.sticky, 'h2' )}>
+        <h2 className={cn(s.sticky, 'h2')}>
           <AppearTitle>{casamento.secoes.infos.titulo}</AppearTitle>
         </h2>
         <aside className={s.features} ref={whyRectRef}>
@@ -47,49 +48,9 @@ export const WorksSection = ({ whyRectRef }) => {
           <div className={s.feature} id="presentes">
             <h3 className={cn(s.title, 'h4')}>Presentes</h3>
             <div className={s.presentesContent}>
-              {/* <p className={s.intro}>
-                Em breve, enviaremos a lista de presentes e endereços de envio (para aqueles que vêm de longe).
-                <br />
-                <br />
-                Neste momento, o melhor presente que alguém pode nos dar é contribuir via uma das formas abaixo:
-              </p> */}
-
-              <div className={s.paymentCategory}>
-                <h4 className={s.categoryTitle} style={{ color: '#EE4D2D' }}>
-                  <img 
-                    src="https://banner2.cleanpng.com/lnd/20241224/hk/bc44a842907fc89fd1b5c33e4b2952.webp" 
-                    alt="Shopee" 
-                    className={s.shopeeIcon}
-                  /> Lista de Presentes - Shopee
-                </h4>
-                <div className={s.paymentItem}>
-                  <span className={s.paymentLabel}>Lista de Presentes:</span>
-                  <a
-                    href="https://collshp.com/joaoegabrielle?view=storefront"
-                    target="_blank"
-                    rel="noreferrer"
-                    className={s.paymentLink}
-                    style={{ color: '#EE4D2D', textDecoration: 'underline' }}
-                  >
-                    Ver lista na Shopee
-                  </a>
-                </div>
-                <p className={s.shopeeInfo}>
-                  Você pode comprar por lá e trazer no dia do casamento ou enviar para o endereço de um padrinho. 
-                  Para isso, entre em contato no WhatsApp e envie a palavra-chave: <strong>"ENTREGA"</strong>
-                </p>
-                <div className={s.paymentItem}>
-                  <span className={s.paymentLabel}>Contato WhatsApp:</span>
-                  <a
-                    href="https://wa.me/5551999354299?text=ENTREGA"
-                    target="_blank"
-                    rel="noreferrer"
-                    className={s.paymentLink}
-                  >
-                    Entrar em contato
-                  </a>
-                </div>
-              </div>
+              <Button href="https://collshp.com/joaoegabrielle?view=storefront" arrow className={s.presentesButton}>
+                Ver lista de presentes
+              </Button>
 
               <div className={s.paymentCategory}>
                 <h4 className={s.categoryTitle}>

@@ -64,6 +64,14 @@
   }
 
   .presentesContent {
+    .presentesButton {
+      margin-top: mobile-vw(16px);
+
+      @include desktop {
+        margin-top: desktop-vw(24px);
+      }
+    }
+
     .intro {
       margin-bottom: mobile-vw(32px);
       line-height: 1.6;
