@@ -42,21 +42,43 @@ export function ImagePreloader({ onComplete }) {
     if (typeof window === 'undefined') return
 
     let loaded = 0
-    let errored = 0
     const imagePromises = []
+    let didFinish = false
+
+    const finish = () => {
+      if (didFinish) return
+      didFinish = true
+      setIsComplete(true)
+      // Pequeno delay para garantir que a UI atualize antes de esconder
+      setTimeout(() => {
+        if (onComplete) {
+          onComplete()
+        }
+      }, 300)
+    }
 
     const loadImage = (src) => {
       return new Promise((resolve, reject) => {
         const img = new Image()
+        let timeoutId = null
+
+        // Se a requisição ficar "pendurada" (muito comum em mobile),
+        // força a contagem como concluída para não travar no loading.
+        timeoutId = setTimeout(() => {
+          loaded++
+          setLoadedCount(loaded)
+          resolve()
+        }, 8000)
         
         img.onload = () => {
+          if (timeoutId) clearTimeout(timeoutId)
           loaded++
           setLoadedCount(loaded)
           resolve()
         }
         
         img.onerror = () => {
-          errored++
+          if (timeoutId) clearTimeout(timeoutId)
           // Ainda conta como "carregado" mesmo se der erro, para não travar o loading
           loaded++
           setLoadedCount(loaded)
@@ -73,15 +95,16 @@ export function ImagePreloader({ onComplete }) {
     })
 
     // Quando todas as imagens terminarem (sucesso ou erro)
-    Promise.all(imagePromises).then(() => {
-      setIsComplete(true)
-      // Pequeno delay para garantir que a UI atualize antes de esconder
-      setTimeout(() => {
-        if (onComplete) {
-          onComplete()
-        }
-      }, 300)
-    })
+    Promise.all(imagePromises).then(finish)
+
+    // Safety timeout global (caso algo inesperado aconteça)
+    const globalTimeoutId = setTimeout(() => {
+      finish()
+    }, 10000)
+
+    return () => {
+      clearTimeout(globalTimeoutId)
+    }
   }, [onComplete])
 
   const progress = totalImages > 0 ? (loadedCount / totalImages) * 100 : 0

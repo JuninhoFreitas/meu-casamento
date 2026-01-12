@@ -60,6 +60,7 @@ function MyApp({ Component, pageProps }) {
   const debug = false;
   const lenis = useStore(({ lenis }) => lenis)
   const [imagesLoaded, setImagesLoaded] = useState(false)
+  const [skipPreloader, setSkipPreloader] = useState(false)
 
   // Configura ScrollTrigger update após GSAP estar carregado
   useScroll(async () => {
@@ -82,9 +83,25 @@ function MyApp({ Component, pageProps }) {
     window.history.scrollRestoration = 'manual'
   }, [])
 
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+
+    const isMobileViewport =
+      window.matchMedia?.('(max-width: 800px)')?.matches ?? false
+    const isMobileUA =
+      typeof navigator !== 'undefined' &&
+      /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
+
+    // No mobile, pula o preloader para evitar travar na primeira carga
+    if (isMobileViewport || isMobileUA) {
+      setSkipPreloader(true)
+      setImagesLoaded(true)
+    }
+  }, [])
+
   return (
     <>
-      {!imagesLoaded && (
+      {!imagesLoaded && !skipPreloader && (
         <ImagePreloader onComplete={() => setImagesLoaded(true)} />
       )}
       
