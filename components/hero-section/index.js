@@ -66,7 +66,7 @@ export const HeroSection = ({ introOut, hasScrolled, daysLeft }) => {
         <Button
           className={cn(s.cta, s.presentes, introOut && s.in)}
           arrow
-          href="https://collshp.com/joaoegabrielle?view=storefront"
+          href="/presentes"
         >
           Ver lista de presentes
         </Button>

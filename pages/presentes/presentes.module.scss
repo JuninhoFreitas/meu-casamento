@@ -67,3 +67,75 @@
 .error {
   color: #e74c3c;
 }
+
+.banner {
+  background: linear-gradient(135deg, rgba(255, 87, 34, 0.1) 0%, rgba(255, 152, 0, 0.1) 100%);
+  border: mobile-vw(2px) solid rgba(255, 87, 34, 0.3);
+  border-radius: mobile-vw(12px);
+  padding: mobile-vw(20px) mobile-vw(24px);
+  margin-bottom: mobile-vw(32px);
+  text-align: center;
+
+  @include desktop {
+    border-width: desktop-vw(2px);
+    border-radius: desktop-vw(16px);
+    padding: desktop-vw(24px) desktop-vw(32px);
+    margin-bottom: desktop-vw(40px);
+  }
+}
+
+.bannerText {
+  font-size: mobile-vw(14px);
+  line-height: 1.6;
+  color: var(--theme-secondary);
+  margin: 0;
+
+  @include desktop {
+    font-size: desktop-vw(16px);
+  }
+}
+
+.bannerLink {
+  color: #ff5722;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 87, 34, 0.5);
+  transition: color 0.3s ease, text-decoration-color 0.3s ease;
+
+  &:hover {
+    color: #e64a19;
+    text-decoration-color: rgba(230, 74, 25, 0.8);
+  }
+
+  &:active {
+    color: #bf360c;
+  }
+}
+
+.disclaimer {
+  background: rgba(0, 0, 0, 0.03);
+  border-left: mobile-vw(4px) solid rgba(0, 0, 0, 0.2);
+  border-radius: mobile-vw(8px);
+  padding: mobile-vw(16px) mobile-vw(20px);
+  margin-bottom: mobile-vw(32px);
+
+  @include desktop {
+    border-left-width: desktop-vw(4px);
+    border-radius: desktop-vw(10px);
+    padding: desktop-vw(20px) desktop-vw(24px);
+    margin-bottom: desktop-vw(40px);
+  }
+}
+
+.disclaimerText {
+  font-size: mobile-vw(13px);
+  line-height: 1.6;
+  color: var(--theme-secondary);
+  margin: 0;
+  opacity: 0.85;
+  font-style: italic;
+
+  @include desktop {
+    font-size: desktop-vw(14px);
+  }
+}

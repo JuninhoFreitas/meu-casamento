@@ -48,7 +48,7 @@ export const WorksSection = ({ whyRectRef }) => {
           <div className={s.feature} id="presentes">
             <h3 className={cn(s.title, 'h4')}>Presentes</h3>
             <div className={s.presentesContent}>
-              <Button href="https://collshp.com/joaoegabrielle?view=storefront" arrow className={s.presentesButton}>
+              <Button href="/presentes" arrow className={s.presentesButton}>
                 Ver lista de presentes
               </Button>
 

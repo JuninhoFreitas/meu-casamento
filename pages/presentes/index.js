@@ -59,6 +59,26 @@ export default function Presentes({ presentesData }) {
           </aside>
 
           <div className={s.content}>
+            <div className={s.banner}>
+              <p className={s.bannerText}>
+                Você também pode comprar presentes através da Shopee:{' '}
+                <a
+                  href="https://collshp.com/joaoegabrielle?view=storefront"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={s.bannerLink}
+                >
+                  LINK PARA A LISTA NA SHOPEE
+                </a>
+              </p>
+            </div>
+
+            <div className={s.disclaimer}>
+              <p className={s.disclaimerText}>
+                A lista de presentes abaixo é somente representativa, isto é: você não estará comprando exatamente o produto da foto, mas sim nos dando de presente o valor que será usado para pagar parcialmente ou completamente o presente representado na imagem.
+              </p>
+            </div>
+
             {products.length === 0 && (
               <div className={s.empty}>
                 <p>Carregando lista de presentes...</p>
