@@ -41,6 +41,9 @@ importers:
       leva:
         specifier: ^0.9.34
         version: 0.9.35(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      mercadopago:
+        specifier: ^2.11.0
+        version: 2.11.0
       nanoevents:
         specifier: ^7.0.1
         version: 7.0.1
@@ -3158,6 +3161,9 @@ packages:
   mdn-data@2.0.14:
     resolution: {integrity: sha512-dn6wd0uw5GsdswPFfsgMp5NSB0/aDe6fK94YJV/AJDYXL6HVLWBsxeq7js7Ad+mU2K9LAlwpk6kN2D5mwCPVow==}
 
+  mercadopago@2.11.0:
+    resolution: {integrity: sha512-Etv7sBwQp8ZW179W5wAGc7JFmfFOeJttQSeN1HuDrwU38YOIi+nYdKN+2KTgR9/F1S8oOGMlkVPthyIwOF5BXQ==}
+
   merge-stream@2.0.0:
     resolution: {integrity: sha512-abv/qOcuPfk3URPfDzmZU1LKmuw8kT+0nIHvKrKgFrwifol/doWcdA4ZqsWQ8ENrFKkd67Mfpo/LovbIUsbt3w==}
 
@@ -3289,6 +3295,15 @@ packages:
 
   node-fetch@2.6.7:
     resolution: {integrity: sha512-ZjMPFEfVx5j+y2yF35Kzx5sF7kDzxuDj6ziH4FFbOp87zKDZNx8yExJIb05OGF4Nlt9IHFIMBkRl41VdvcNdbQ==}
+    engines: {node: 4.x || >=6.0.0}
+    peerDependencies:
+      encoding: ^0.1.0
+    peerDependenciesMeta:
+      encoding:
+        optional: true
+
+  node-fetch@2.7.0:
+    resolution: {integrity: sha512-c4FRfUm/dbcWZ7U+1Wq0AwCyFL+3nt2bEw05wfxSz+DWpWsitgmSgYmy2dQdWyKC1694ELPqMs/YzUSNozLt8A==}
     engines: {node: 4.x || >=6.0.0}
     peerDependencies:
       encoding: ^0.1.0
@@ -7720,6 +7735,13 @@ snapshots:
 
   mdn-data@2.0.14: {}
 
+  mercadopago@2.11.0:
+    dependencies:
+      node-fetch: 2.7.0
+      uuid: 9.0.1
+    transitivePeerDependencies:
+      - encoding
+
   merge-stream@2.0.0: {}
 
   merge-value@1.0.0:
@@ -7858,6 +7880,10 @@ snapshots:
     optional: true
 
   node-fetch@2.6.7:
+    dependencies:
+      whatwg-url: 5.0.0
+
+  node-fetch@2.7.0:
     dependencies:
       whatwg-url: 5.0.0
 

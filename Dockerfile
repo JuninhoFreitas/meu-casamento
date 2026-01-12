@@ -30,6 +30,11 @@ COPY . .
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
 
+# ARG for build-time variables (NEXT_PUBLIC_* variables need to be available at build time)
+# These should be passed via --build-arg when building the image
+ARG NEXT_PUBLIC_MERCADOPAGO_PUBLIC_KEY
+ENV NEXT_PUBLIC_MERCADOPAGO_PUBLIC_KEY=$NEXT_PUBLIC_MERCADOPAGO_PUBLIC_KEY
+
 # Build the application
 RUN pnpm build
 
@@ -40,6 +45,10 @@ WORKDIR /app
 
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
+
+# Runtime environment variables (these should be passed via -e or docker-compose)
+# MERCADOPAGO_ACCESS_TOKEN is used at runtime in API routes, so it doesn't need to be in the image
+# NEXT_PUBLIC_MERCADOPAGO_PUBLIC_KEY is already embedded in the build from the builder stage
 
 # Install runtime dependencies
 RUN apk add --no-cache libc6-compat ca-certificates

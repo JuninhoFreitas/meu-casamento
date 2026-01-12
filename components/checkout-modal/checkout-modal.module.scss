@@ -1,0 +1,139 @@
+@import 'styles/_functions';
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: mobile-vw(20px);
+
+  @include desktop {
+    padding: desktop-vw(40px);
+  }
+}
+
+.modal {
+  background: white;
+  border-radius: mobile-vw(16px);
+  max-width: mobile-vw(600px);
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 mobile-vw(20px) mobile-vw(60px) rgba(0, 0, 0, 0.3);
+
+  @include desktop {
+    max-width: desktop-vw(800px);
+    border-radius: desktop-vw(20px);
+    box-shadow: 0 desktop-vw(20px) desktop-vw(60px) rgba(0, 0, 0, 0.3);
+  }
+}
+
+.closeButton {
+  position: absolute;
+  top: mobile-vw(16px);
+  right: mobile-vw(16px);
+  background: transparent;
+  border: none;
+  font-size: mobile-vw(32px);
+  line-height: 1;
+  cursor: pointer;
+  color: var(--theme-secondary);
+  z-index: 10;
+  width: mobile-vw(40px);
+  height: mobile-vw(40px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  @include desktop {
+    top: desktop-vw(20px);
+    right: desktop-vw(20px);
+    font-size: desktop-vw(40px);
+    width: desktop-vw(48px);
+    height: desktop-vw(48px);
+  }
+}
+
+.header {
+  padding: mobile-vw(32px) mobile-vw(24px) mobile-vw(24px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+  @include desktop {
+    padding: desktop-vw(40px) desktop-vw(32px) desktop-vw(32px);
+  }
+}
+
+.title {
+  font-size: mobile-vw(24px);
+  font-weight: 600;
+  margin-bottom: mobile-vw(8px);
+  color: var(--theme-secondary);
+
+  @include desktop {
+    font-size: desktop-vw(28px);
+    margin-bottom: desktop-vw(12px);
+  }
+}
+
+.price {
+  font-size: mobile-vw(20px);
+  font-weight: 500;
+  color: var(--theme-secondary);
+  opacity: 0.7;
+
+  @include desktop {
+    font-size: desktop-vw(24px);
+  }
+}
+
+.content {
+  padding: mobile-vw(24px);
+
+  @include desktop {
+    padding: desktop-vw(32px);
+  }
+}
+
+.loading,
+.error {
+  text-align: center;
+  padding: mobile-vw(40px) mobile-vw(20px);
+  color: var(--theme-secondary);
+
+  @include desktop {
+    padding: desktop-vw(60px) desktop-vw(40px);
+  }
+
+  p {
+    font-size: mobile-vw(16px);
+
+    @include desktop {
+      font-size: desktop-vw(18px);
+    }
+  }
+}
+
+.error {
+  color: #e74c3c;
+}
+
+.brickContainer {
+  min-height: mobile-vw(400px);
+
+  @include desktop {
+    min-height: desktop-vw(500px);
+  }
+}

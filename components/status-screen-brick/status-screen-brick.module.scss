@@ -1,0 +1,42 @@
+@import 'styles/_functions';
+
+.container {
+  width: 100%;
+  min-height: mobile-vw(400px);
+
+  @include desktop {
+    min-height: desktop-vw(500px);
+  }
+}
+
+.loading,
+.error {
+  text-align: center;
+  padding: mobile-vw(40px) mobile-vw(20px);
+  color: var(--theme-secondary);
+
+  @include desktop {
+    padding: desktop-vw(60px) desktop-vw(40px);
+  }
+
+  p {
+    font-size: mobile-vw(16px);
+
+    @include desktop {
+      font-size: desktop-vw(18px);
+    }
+  }
+}
+
+.error {
+  color: #e74c3c;
+}
+
+.brickContainer {
+  width: 100%;
+  min-height: mobile-vw(400px);
+
+  @include desktop {
+    min-height: desktop-vw(500px);
+  }
+}

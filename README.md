@@ -76,3 +76,26 @@ Alongside the usual Next.js folder structure (`/public`, `/pages`, etc.) We've a
 
 - [Vercel](https://vercel.com/home) - Hosting & Continuous Deployment
 - [GitHub](https://github.com/) - Version Control
+
+### Deploy para Produção
+
+Para fazer o deploy para produção, consulte o guia completo em [DEPLOY.md](./DEPLOY.md).
+
+**Resumo rápido:**
+
+1. Configure as variáveis de ambiente no Vercel:
+   - `MERCADOPAGO_ACCESS_TOKEN`
+   - `NEXT_PUBLIC_MERCADOPAGO_PUBLIC_KEY`
+
+2. Faça o build local para testar:
+   ```bash
+   pnpm build
+   pnpm start
+   ```
+
+3. Deploy no Vercel:
+   ```bash
+   vercel --prod
+   ```
+
+**⚠️ Importante:** Nunca commite credenciais do Mercado Pago no código. Use sempre variáveis de ambiente.

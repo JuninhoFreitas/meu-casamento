@@ -13,6 +13,13 @@ export default function Document() {
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
+        {/* Mercado Pago preconnect for better performance */}
+        <link rel="preconnect" href="https://sdk.mercadopago.com" />
+        <link rel="preconnect" href="https://api.mercadopago.com" />
+        <link rel="preconnect" href="https://api.mercadolibre.com" />
+        <link rel="dns-prefetch" href="https://sdk.mercadopago.com" />
+        <link rel="dns-prefetch" href="https://api.mercadopago.com" />
+        <link rel="dns-prefetch" href="https://api.mercadolibre.com" />
         <link
           href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
           rel="stylesheet"

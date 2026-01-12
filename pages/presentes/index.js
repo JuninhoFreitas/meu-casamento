@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Layout } from 'layouts/default'
 import { casamento } from 'content/casamento'
 import { ProductCard } from 'components/product-card'
-import { fetchShopeeProducts, processShopeeItem } from 'lib/shopee-utils'
+import { CheckoutModal } from 'components/checkout-modal'
+import { parsePrice } from 'lib/price-utils'
 import dynamic from 'next/dynamic'
 import s from './presentes.module.scss'
 
@@ -11,40 +12,35 @@ const AppearTitle = dynamic(
   { ssr: false }
 )
 
-export default function Presentes() {
-  const [products, setProducts] = useState([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
+export default function Presentes({ presentesData }) {
+  const [selectedProduct, setSelectedProduct] = useState(null)
+  const [isCheckoutOpen, setIsCheckoutOpen] = useState(false)
 
-  useEffect(() => {
-    async function loadProducts() {
-      try {
-        setLoading(true)
-        const data = await fetchShopeeProducts('joaoegabrielle')
-        
-        if (data?.data?.storefrontProductList?.itemList) {
-          const processedProducts = data.data.storefrontProductList.itemList.map(processShopeeItem)
-          setProducts(processedProducts)
-        } else {
-          setError('Nenhum produto encontrado')
-        }
-      } catch (err) {
-        console.error('Erro ao carregar produtos:', err)
-        setError('Erro ao carregar a lista de presentes. Por favor, tente novamente mais tarde.')
-      } finally {
-        setLoading(false)
-      }
-    }
+  // Process products from JSON
+  const products = presentesData.map((item, index) => ({
+    id: `presente-${index}`,
+    titulo: item.titulo,
+    valor: item.valor,
+    valorNumerico: parsePrice(item.valor),
+    url_imagem: item.url_imagem,
+  }))
 
-    loadProducts()
-  }, [])
+  const handleProductClick = (product) => {
+    setSelectedProduct(product)
+    setIsCheckoutOpen(true)
+  }
+
+  const handleCloseCheckout = () => {
+    setIsCheckoutOpen(false)
+    setSelectedProduct(null)
+  }
 
   return (
     <Layout
       theme="light"
       seo={{
         title: `Lista de Presentes - ${casamento.noivos.nomeCompleto}`,
-        description: `Confira nossa lista de presentes de casamento na Shopee`,
+        description: `Confira nossa lista de presentes de casamento`,
       }}
       className={s.page}
     >
@@ -63,42 +59,53 @@ export default function Presentes() {
           </aside>
 
           <div className={s.content}>
-            {loading && (
-              <div className={s.loading}>
+            {products.length === 0 && (
+              <div className={s.empty}>
                 <p>Carregando lista de presentes...</p>
               </div>
             )}
 
-            {error && (
-              <div className={s.error}>
-                <p>{error}</p>
-              </div>
-            )}
-
-            {!loading && !error && products.length === 0 && (
-              <div className={s.empty}>
-                <p>Nenhum presente disponível no momento.</p>
-              </div>
-            )}
-
-            {!loading && !error && products.length > 0 && (
+            {products.length > 0 && (
               <div className={s.grid}>
                 {products.map((product) => (
-                  <ProductCard key={product.id} product={product} />
+                  <ProductCard
+                    key={product.id}
+                    product={{
+                      id: product.id,
+                      name: product.titulo,
+                      price: product.valor,
+                      image: product.url_imagem,
+                    }}
+                    onClick={() => handleProductClick(product)}
+                  />
                 ))}
               </div>
             )}
           </div>
         </div>
       </section>
+
+      <CheckoutModal
+        isOpen={isCheckoutOpen}
+        onClose={handleCloseCheckout}
+        product={selectedProduct}
+      />
     </Layout>
   )
 }
 
 export async function getStaticProps() {
+  const fs = require('fs')
+  const path = require('path')
+
+  const filePath = path.join(process.cwd(), 'presentes.json')
+  const fileContents = fs.readFileSync(filePath, 'utf8')
+  const presentesData = JSON.parse(fileContents)
+
   return {
     props: {
       id: 'presentes',
+      presentesData,
     },
   }
 }

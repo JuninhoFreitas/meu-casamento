@@ -1,11 +1,13 @@
 import cn from 'clsx'
 import s from './product-card.module.scss'
 
-export function ProductCard({ product, className }) {
+export function ProductCard({ product, className, onClick }) {
   const handleClick = () => {
     if (product.linkId) {
       const url = `https://collshp.com/joaoegabrielle?linkId=${product.linkId}&view=storefront`
       window.open(url, '_blank', 'noopener,noreferrer')
+    } else if (onClick) {
+      onClick()
     }
   }
 

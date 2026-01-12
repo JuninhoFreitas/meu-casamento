@@ -39,6 +39,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'assets.darkroom.engineering',
       },
+      {
+        protocol: 'https',
+        hostname: 'cdn-assets-legacy.casar.com',
+      },
     ],
     formats: ['image/avif', 'image/webp'],
   },
