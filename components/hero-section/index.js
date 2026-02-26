@@ -57,13 +57,6 @@ export const HeroSection = ({ introOut, hasScrolled, daysLeft }) => {
           </HeroTextIn>
         </h1>
         <Button
-          className={cn(s.cta, s.documentation, introOut && s.in)}
-          arrow
-          href="/confirmar-presenca"
-        >
-          Confirmar Presença
-        </Button>
-        <Button
           className={cn(s.cta, s.presentes, introOut && s.in)}
           arrow
           href="/presentes"
