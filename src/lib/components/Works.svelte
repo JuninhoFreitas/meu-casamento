@@ -10,7 +10,6 @@
 	import unidos from '$lib/assets/unidos.webp';
 	import hotel from '$lib/assets/hotel.webp';
 	import presentes from '$lib/assets/presentes.webp';
-	import casamento from '$lib/assets/casamento.webp';
 
 	const weddingInfo = [
 		{
@@ -33,13 +32,6 @@
 			year: 'Monetário preferido',
 			tags: ['Presentes', 'PIX disponível', 'Contato direto'],
 			image: presentes
-		},
-		{
-			name: 'Confirmação de Presença',
-			description: 'Ajude-nos a organizar melhor o evento confirmando sua presença',
-			year: 'RSVP',
-			tags: ['Presença', 'Organização', 'Contato conosco'],
-			image: casamento
 		}
 	];
 

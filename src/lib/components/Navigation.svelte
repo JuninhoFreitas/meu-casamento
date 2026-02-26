@@ -73,16 +73,6 @@
 				</div>
 			</div>
 
-			<!-- CTA Button -->
-			<div class="hidden md:block">
-				<a
-					href="#connect"
-					class="bg-accent hover:bg-accent-hover text-white px-4 py-2 rounded-full text-sm font-medium transition-colors"
-				>
-					Confirmar Presença
-				</a>
-			</div>
-
 			<!-- Mobile menu button -->
 			<div class="md:hidden">
 				<button
@@ -118,12 +108,6 @@
 						{section.label}
 					</button>
 				{/each}
-				<a
-					href="#connect"
-					class="block px-3 py-2 text-base font-medium text-accent hover:text-accent-hover"
-				>
-					Confirmar Presença
-				</a>
 			</div>
 		</div>
 	{/if}

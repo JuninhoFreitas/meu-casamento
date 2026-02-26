@@ -17,7 +17,7 @@
 				Entre em contato conosco
 			</h2>
 			<p class="text-xl md:text-2xl text-gray-600 transform transition-all duration-1000 delay-300 {isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}">
-				Tem dúvidas sobre o casamento? Precisa confirmar presença? Entre em contato conosco!
+				Tem dúvidas sobre o casamento? Entre em contato conosco!
 			</p>
 		</div>
 
@@ -38,14 +38,8 @@
 
 			<!-- Alternative Contact -->
 			<div class="transform transition-all duration-1000 delay-700 {isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}">
-				<p class="text-lg text-gray-600 mb-4">Ou confirme sua presença através dos nossos canais:</p>
+				<p class="text-lg text-gray-600 mb-4">Entre em contato através dos nossos canais:</p>
 				<div class="flex flex-wrap justify-center gap-4">
-					<a
-						href="mailto:brizollajr@gmail.com?subject=Confirmação de Presença - Casamento Gabrielle & João"
-						class="px-6 py-3 bg-accent hover:bg-accent-hover text-white rounded-full transition-all duration-300 hover:scale-105"
-					>
-						Confirmar Presença
-					</a>
 					<a
 						href="mailto:brizollajr@gmail.com?subject=Lista de Presentes - Casamento Gabrielle & João"
 						class="px-6 py-3 bg-white hover:bg-gray-50 border border-gray-200 text-gray-700 hover:text-accent rounded-full transition-all duration-300 hover:scale-105"
