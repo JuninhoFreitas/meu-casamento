@@ -1,0 +1,53 @@
+@import 'styles/_functions';
+
+.page {
+  min-height: 100vh;
+}
+
+.section {
+  padding-top: mobile-vw(80px);
+  padding-bottom: mobile-vw(80px);
+
+  @include desktop {
+    padding-top: desktop-vw(120px);
+    padding-bottom: desktop-vw(120px);
+  }
+}
+
+.images {
+  display: flex;
+  flex-direction: column;
+}
+
+.image {
+  display: block;
+  width: 85vw;
+  height: auto;
+  max-height: 85vh;
+  margin: 0 auto;
+}
+
+.pdfLink {
+  text-align: center;
+  padding: mobile-vw(40px) mobile-vw(24px);
+
+  @include desktop {
+    padding: desktop-vw(48px) desktop-vw(80px);
+  }
+
+  a {
+    font-size: mobile-vw(14px);
+    color: var(--theme-secondary);
+    text-decoration: underline;
+    opacity: 0.6;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    @include desktop {
+      font-size: desktop-vw(16px);
+    }
+  }
+}
